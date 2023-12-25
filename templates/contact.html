@@ -1,0 +1,124 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- aos link -->
+    <link rel="stylesheet" href="{% static 'path/to/aos.css' %}" />
+    <link rel="icon" href="{% static 'img/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+    <!--web icon -->
+    <link rel="icon" href="{% static 'CODE/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- font family Audiowide -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+
+    <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+
+    <!-- styleheet -->
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<style>
+    .location{
+    height: 60vh;
+    padding: 20px;
+    
+}.sideLogo{
+    position: absolute;
+    top: 360px;
+    left: 500px;
+    display: block;
+    width: 300px;
+}
+</style>
+</head>
+<body data-aos="fade">  
+<!-- navbar -->
+  {% include 'navbar.html' %}
+    <!-- content----------------------------------------------------------------------------------------------------------->
+    <section class="content">
+      <!-- side head -->
+      <div class="sideLogo">
+       <h1>Contact</h1>    
+       <p>What are you waiting for? Let's build your journey together.</p>
+   </div>  
+   </section>
+   <!-- location -->
+   <section class="location">
+     <h2>Contact Us</h2>
+     <div class="socialLocation">
+         <div class="div-1">
+             <i class="fa-solid fa-envelope"></i>
+             <h1>E-mail Us </h1>
+             <p>Please an e-mail to Wheels@Wheels.com</p>
+         </div>
+         <div class="div-1">
+             <i class="fa-solid fa-location-dot"></i>     
+             <h1>Find Us</h1>
+             <p>Eindhoven (HQ)
+             Succeed Offices
+             Stadhuisplein 10 — 5611 EM — Eindhoven
+             The Netherlands</p>
+         </div>
+  
+     </div>
+     <!-- line ---------------------------------------------------------------------------------------------------------->
+ </section>
+ <section class="line">
+     <h1></h1>
+ </section>
+     <!-- sign in ---------------------------------------------------------------------------------------------------------->
+ 
+<!-- message_us.html -->
+<section class="signIn-container">
+    <h2>Message Us</h2>
+    <div class="messageUs">
+        <p>Your information will be kept private and confidential...</p>
+        <form action="{% url 'message_us' %}" method="post">
+            {% csrf_token %}
+            <div class="input-container">
+                <label for="Full">Full Name*</label>
+                <div class="inner-text">
+                    <input type="text" id="Full" name="Full" placeholder="Full Name" required>
+                </div>
+            </div>
+            <div class="input-container">
+                <label for="message">Message</label>
+                <div class="inner-text">
+                    <textarea id="message" name="message" placeholder="Your message" rows="4" required></textarea>
+                </div>
+            </div>
+            <button type="submit" class="submit">Send message</button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+  {% include 'footer.html' %}
+  </body>
+  
+  <!-- java script -->
+  <!-- java script -->
+  <script src="{% static 'js/index.js' %}"></script>
+  <!-- our aos data -->
+  <script src="{% static 'js/aos.js' %}"></script>
+  </html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* footer */
+  footer {
+  height: 110vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  
+  background-color: #212529;
+  }
+  footer .language{
+  padding: 20px;
+  display: block;
+  width: 100%;
+  height: auto;
+  
+  } 
+  .language h1{
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: white; 
+  
+  }
+  
+  /* second */
+  .footer-content{
+  padding: 10px;
+  display: grid;
+  width: 60%;
+  height: auto;
+  gap: 10px; /* Adjust the gap value according to your preference */
+  background-color: #212529;
+  
+  grid-template-columns: repeat(3, 1fr);
+  }
+  .footer-content .item{
+  
+  height: auto;
+  
+  width: 300px;
+  padding: 20px; /* Add padding to separate items */
+  }
+  
+  .item h1{
+  font-family: "Poppins",sans-serif;
+  font-size: 20px;
+  font-weight: 700;  margin-bottom: 1rem;
+  
+  color: white;
+  }
+  
+  .item p{
+  text-decoration: none;
+  font-family: "Poppins",sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  width: auto;
+  color: white;
+  margin-bottom: .5rem;
+  
+  }
+  .item a{
+  text-decoration: none;
+  font-family: "Poppins",sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  width: auto;
+  color: white;
+  
+  }
+  .item i{
+  background-color: white;
+  padding: 10px;
+  border-radius: .2rem;
+  cursor: pointer;
+  }
+  .item .sub,
+  .item .con{
+  padding: 7px 20px;
+  font-family: "Poppins",sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  width: 150px;
+    text-align: center; border: none;
+  color: #212529;
+  border-radius: .2rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  background-color: white;
+  }
+  .item a:hover{
+  color: #2c2e2f;
+  }
+  .item .sub:hover,
+  .item .con:hover{
+  background-color: #212529;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+  color: white;
+  }
+  .item i:hover{
+  background-color: #212529;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+  color: white;
+  }
+  /* third */
+  .footer-line{
+  padding: 20px;  background-color: #212529;
+  
+  }
+  .footer-line h1{
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  border-radius: .5rem;
+  }
+  /* fourth */
+  .footer-para{  background-color: #212529;
+  
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  }
+  .footer-para p{
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  }
+  /* fifth */
+  .footer-logo{
+  justify-content: center;
+  display: flex;
+  background-color: #212529;
+  align-items: center;
+  padding: 20px;
+  }
+  .footer-logo h1{
+  font-family: "Audiowide", sans-serif;
+            font-size: 2rem;            text-transform: uppercase;
+  
+            font-weight: bold;
+            letter-spacing: 1px;
+  }
+</style>
+<body>
+    <!--  footer-->
+<footer>
+    <div class="language">
+      <h1>Current Region / Language</h1>
+    </div>
+    <div class="footer-content">
+      <div class="item">
+        <h1>NewsLetter</h1>
+        <p>Latest news directly into your box</p>
+        <a href="{% url 'Login' %}" class="sub">Subscribe</a>
+    
+      </div>
+      <div class="item">
+        <h1>Contact</h1>
+        <p>Do you have any question?</p>
+        <a href="{% url 'Contact' %}" class="con">Contact form</a>
+    
+      </div>
+      <div class="item">
+        <h1>SocialMedia</h1>
+        <p>Get in touch with us via SocialMedia</p>
+        <div class="item-icon">
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-pinterest-p"></i>
+          <i class="fa-brands fa-youtube"></i>
+        </div>
+      </div>
+      <div class="item">
+        <h1>Company</h1>       
+        <p> <a href="">About</a></p>
+        <p><a href="">Cars</a></p>         
+      </div>
+      <div class="item">
+        <h1>Models</h1>       
+        <p> <a href="">BMW</a></p>
+        <p><a href="">Mercedes        </a></p>
+        <p> <a href="">Honda</a></p>
+        <p><a href="">Porsche</a></p>        
+      </div>
+    </div>
+    <div class="footer-line">
+      <h1></h1>
+    </div>
+    <div class="footer-para">
+      <p>@2023 Wheels</p>
+    </div>
+    <div class="footer-logo">
+      <h1 class="h1 gradient-text">Wheels</h1>
+    </div>
+    </footer>
+</body>
+</html>

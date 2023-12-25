@@ -1,0 +1,345 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- aos link -->
+    <link rel="stylesheet" href="{% static 'path/to/aos.css' %}" />
+    <link rel="icon" href="{% static 'img/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+    <!--web icon -->
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- font family Audiowide -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+
+    <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+
+    <!-- styleheet -->
+    <link rel="stylesheet" href="{% static 'css/Dashboard.css' %}">
+<style>
+  .info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 35%;
+  }
+  .info p{
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+  }/* Add this CSS in your <style> block or in an external CSS file */
+.popup {
+  display: none;
+  position: fixed;
+  bottom: 50%; /* Adjust the distance from the bottom as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent; /* Set the background to transparent */
+  width: 50%;
+  z-index: 1000;
+}
+.popup-content {
+  background: #5b5b5b;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.popup-buttons button {
+  margin: 0 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body id="body" data-aos="fade">  
+<!-- navbar -->
+  {% include 'navbar.html' %}
+  <!-- middle body 1------------------------------------------------------------------------------------------------------->
+<section class="middleSection"data-aos="fade" >
+  
+  <h1>Dashboard</h1>
+  <section class="lineSec">
+    <h1></h1>
+  </section>
+  <div class="model-collection" data-aos="fade" >
+    <div class="parent">
+
+      <a id="GarageLink"><i class="fa-solid fa-arrow-right"></i>My Garage</a>
+      <a id="TrackLink"><i class="fa-solid fa-arrow-right"></i>Track my Wheels</a>
+      <a id="PaymentDetailsLink"><i class="fa-solid fa-arrow-right"></i>Payment Details</a>
+
+    </div>
+    <div class="parent">
+      <div class="child bg-one"></div>
+    </div>
+
+  </div>
+</section>
+<!-- Garage -->
+<section id="Garage" class="Garage"data-aos="fade" style="display: none;" >
+
+  <div class="div-sec">
+    <h1>My Garage</h1>
+
+    <a href="#" class="back-arrow"><i class="fas fa-arrow-left-long"></i></a>
+  </div>
+  <section class="lineSec">
+    <h1></h1>
+  </section>
+  <div class="info">
+    <i class="fa-solid fa-circle-info"></i>
+    <p>Purchase cars shown here</p>
+  </div>
+  <div class="model-collection" data-aos="fade" >
+      <!-- show carss -->
+      <div class="carGarage">
+        {% for car_details in user_cars_details %}
+        <div class="popup" id="deleteCarPopup">
+          <div class="popup-content">
+            <p>Are you sure you want to delete this car?</p>
+            <div class="popup-buttons">
+              <a href="{% url 'delete_car' car_details.car_dashboard_id %}">Yes</a>
+              <button onclick="cancelDelete()">No</button>
+            </div>
+          </div>
+        </div>
+          <div class="car">
+            <div class="delete-icon" onclick="deleteCar()"> <!-- Use an appropriate icon here -->
+              <!-- Add your icon markup or use an image -->
+              <span>&times;</span> <!-- Example: Display 'x' as a delete icon -->
+            </div>
+            <img src="{% static car_details.color_image_path %}" alt="">
+            <div class="car-det">
+              <h1>{{ car_details.car_name }}</h1>
+              <p>{{ car_details.color_name }}</p>
+              <p>{{ car_details.car_model }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+</section>
+<!-- track odere -->
+
+<section id="Track" class="Track" style="display: none;">
+  <div class="div-sec">
+    <h1>Track my Wheels</h1>
+    <a href="#" class="back-arrow"><i class="fas fa-arrow-left-long"></i></a>
+  </div>
+  <section class="lineSec">
+    <h1></h1>
+  </section>
+  <div class="TrackWheels">
+    <div class="searchID">
+      <input type="text" placeholder="Enter ID"  class="InputField" >
+      <button type="button" class="submit" onclick="searchCar()"><i class="fa-brands fa-searchengin"></i></button>
+      
+    </div>
+    <div class="car1" id="carDetails">
+      <img src="{% static 'img/img/lexus/car-1/lexus-red/large-2-removebg-preview.png' %}" alt="">
+      <div class="car-det">
+        <h1>Lexus</h1>
+        <p>2022</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+  
+    <ul>
+        <li>
+            <i class="icon uil uil-capture"></i>
+            <div class="progress one">
+                <p>1</p>
+                <i class="uil uil-check"></i>
+            </div>
+            <p class="text">Add To Cart</p>
+        </li>
+        <li>
+            <i class="icon uil uil-clipboard-notes"></i>
+            <div class="progress two">
+                <p>2</p>
+                <i class="uil uil-check"></i>
+            </div>
+            <p class="text">Fill Details</p>
+        </li>
+        <li>
+            <i class="icon uil uil-credit-card"></i>
+            <div class="progress three">
+                <p>3</p>
+                <i class="uil uil-check"></i>
+            </div>
+            <p class="text">Make Payment</p>
+        </li>
+        <li>
+            <i class="icon uil uil-exchange"></i>
+            <div class="progress four">
+                <p>4</p>
+                <i class="uil uil-check"></i>
+            </div>
+            <p class="text">Order in Progress</p>
+        </li>
+        <li>
+            <i class="icon uil uil-map-marker"></i>
+            <div class="progress five">
+                <p>5</p>
+                <i class="uil uil-check"></i>
+            </div>
+            <p class="text">Order Arrived</p>
+        </li>
+    </ul>
+  
+  </div>
+</section>
+
+<!-- line ------------------------------------------------------------------------------------------------------->
+<section class="lineSec">
+  <h1></h1>
+</section>
+
+<!-- FOOTER -->
+  {% include 'footer.html' %}
+
+  </body>
+  
+  <!-- java script -->
+  <!-- java script -->
+  <script src="{% static 'js/index.js' %}"></script>
+  <!-- our aos data -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    
+
+const one = document.querySelector(".one");
+const two = document.querySelector(".two");
+const three = document.querySelector(".three");
+const four = document.querySelector(".four");
+const five = document.querySelector(".five");
+
+one.onclick = function() {
+    one.classList.add("active");
+    two.classList.remove("active");
+    three.classList.remove("active");
+    four.classList.remove("active");
+    five.classList.remove("active");
+}
+
+two.onclick = function() {
+    one.classList.add("active");
+    two.classList.add("active");
+    three.classList.remove("active");
+    four.classList.remove("active");
+    five.classList.remove("active");
+}
+three.onclick = function() {
+    one.classList.add("active");
+    two.classList.add("active");
+    three.classList.add("active");
+    four.classList.remove("active");
+    five.classList.remove("active");
+}
+four.onclick = function() {
+    one.classList.add("active");
+    two.classList.add("active");
+    three.classList.add("active");
+    four.classList.add("active");
+    five.classList.remove("active");
+}
+five.onclick = function() {
+    one.classList.add("active");
+    two.classList.add("active");
+    three.classList.add("active");
+    four.classList.add("active");
+    five.classList.add("active");
+}
+// selector
+document.addEventListener("DOMContentLoaded", function () {
+  // Hide all sections except the middleSection
+  document.querySelectorAll(".Garage, .Track").forEach(function (section) {
+    section.style.display = "none";
+  });
+
+  // Handle clicks on the links in middleSection
+  document.querySelectorAll(".middleSection a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        // Hide the middleSection
+        document.querySelector(".middleSection").style.display = "none";
+      // Hide all sections
+      document.querySelectorAll(".Garage, .Track").forEach(function (section) {
+        section.style.display = "none";
+      });
+
+      // Get the target section based on the clicked link's id
+      const targetSectionId = link.getAttribute("id").replace("Link", "");
+
+      // Show the corresponding section
+      document.getElementById(targetSectionId).style.display = "block";
+    });
+  });
+ // Handle clicks on the back arrows in Garage and Track sections
+ document.querySelectorAll(".Garage a, .Track a").forEach(function (backArrow) {
+    backArrow.addEventListener("click", function () {
+      // Hide the Garage and Track sections
+      document.querySelectorAll(".Garage, .Track").forEach(function (section) {
+        section.style.display = "none";
+      });
+
+      // Show the middleSection
+      document.querySelector(".middleSection").style.display = "block";
+    });
+  });
+});
+// Add this JavaScript in your <script> block or in an external JS file
+ // Add this JavaScript in your <script> block or in an external JS file
+// Add this JavaScript in your <script> block or in an external JS file
+  function deleteCar() {
+  // Display the popup
+  document.getElementById("deleteCarPopup").style.display = "block";
+
+  // Add the blur class to the main content section
+  document.querySelector(".middleSection").classList.add("blur");
+}
+
+function confirmDelete() {
+  // Add your code here to handle car deletion, for example, make an AJAX request
+  // You can also redirect the user or perform any other action
+  alert("Car deleted successfully");
+
+  // Hide the popup
+  document.getElementById("deleteCarPopup").style.display = "none";
+
+  // Remove the blur class from the main content section
+  document.querySelector(".middleSection").classList.remove("blur");
+}
+
+function cancelDelete() {
+  // Hide the popup
+  document.getElementById("deleteCarPopup").style.display = "none";
+
+  // Remove the blur class from the main content section
+  document.querySelector(".middleSection").classList.remove("blur");
+
+  console.log("Deletion canceled");
+}
+  </script><!-- JavaScript code for search functionality -->
+
+  </html>

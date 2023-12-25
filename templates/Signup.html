@@ -1,0 +1,106 @@
+{% load static %}
+
+<!--  -->
+<!DOCTYPE html>
+<html>
+<head>
+    <!--web icon -->
+    <link rel="icon" href="../CODE/needimgofrn/wheels-icon-png-15.png" type="image/x-icon">
+    <!--  -->    <link rel="icon" href="{% static 'img/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+
+    <!-- icon  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+</head>
+<style>
+    .nameft{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+    .nameft p{
+        font-size: 8px;
+        font-weight: 600;
+        padding-left: 10px;
+        letter-spacing: 1px;
+    }
+</style>
+<body>
+    <header>
+        <div class="background-container">
+        </div>
+                <!-- take name -->
+
+        <form action="" method="post" class="form" id="form1" >
+            {% csrf_token %}
+                    <h1 class="h1 gradient-text">Wheels</h1>
+            <div class="backup">
+                <h2>Welcome</h2></div>      
+            <input type="text" placeholder="Fisrt Name" class="input-field name" name="usernameFirst" id="usernameFirst" required>
+            <input type="text" placeholder="Last Name" class="input-field lastname"  name="usernameLast" id="usernameLast" required>  
+            <div class="nameft"><i class="fa-solid fa-circle-info"></i><p>First and second name will be mixture of username</p></div>      
+            <input type="email" placeholder="Email Address" class="input-field"  name="Email" id="Email" required>
+            <input type="password" placeholder="Password" class="input-field pass"  name="password1" id="password1" required>
+            <input type="password" placeholder="Re-Password" class="input-field pass2"  name="password2" id="password2" required>
+
+            <input type="submit" class="submit" value="Continue">
+            <p>If you have an account, <span><a href="{% url 'Login' %}">Log In</a></span></p>
+          
+            {% if error_message %}
+            <div class="error-message">
+                {{ error_message }}
+            </div>
+            {% endif %}
+        </form>
+     
+    </header>
+</body>
+
+<script>
+//  const form1 = document.getElementById('form1');
+//     const form2 = document.getElementById('form2');
+
+//     form2.style.display = 'none';
+
+//     function toggleForms(form) {
+//         form1.style.display = form1.style.display === 'none' ? 'block' : 'none';
+//         form2.style.display = form2.style.display === 'none' ? 'block' : 'none';
+
+//         // Prevent form submission
+//         event.preventDefault();
+//     }
+
+    // Function to hide messages after a delay
+    document.addEventListener('DOMContentLoaded', function () {
+        function hideErrorMessage() {
+            var errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(function (errorMessage) {
+                errorMessage.style.opacity = '0'; // Set opacity to 0 for smooth hiding
+            });
+
+            // After the transition is complete, set display to none
+            setTimeout(function () {
+                errorMessages.forEach(function (errorMessage) {
+                    errorMessage.style.display = 'none';
+                });
+            }, 500); // Adjust the timeout to match the transition duration
+        }
+
+        // Call the function after 3000 milliseconds (3 seconds)
+        setTimeout(hideErrorMessage, 3000);
+    });
+
+</script>
+</html>

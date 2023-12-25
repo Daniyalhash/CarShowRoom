@@ -1,0 +1,210 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- aos link --> <link rel="icon" href="{% static 'img/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+
+    <!--web icon -->
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- font family Audiowide -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+
+    <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+
+    <!-- styleheet -->
+    <style>
+    body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack items vertically */
+            text-align: center;
+        }
+
+        .payment-title {
+            margin-bottom: 20px;
+
+        }
+
+        .display-container {
+            background-color: #f5f5f5;
+            /* Add a background color if needed */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .display-container img{
+            width: 50%;
+            height: auto;
+        }
+        .car_det {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+        .car_det p{
+            font-weight: 400;
+            text-transform: uppercase;
+
+        }
+        .payment-title a {
+            padding: 10px;
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    background-color: black;
+    color: #f5f5f5;
+    cursor: pointer;
+    border-radius: 50%;
+    display: inline-block; /* Add this line to make border-radius work on inline elements */
+}.h1 {
+      font-family: "Audiowide", sans-serif;
+          font-size: 2rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          
+        
+      }
+.gradient-text {
+  background: linear-gradient(6deg, rgba(255, 255, 255, 1) 0%, rgba(33, 37, 41, 0.8232758620689655) 100%);
+  -webkit-background-clip: text; /* For WebKit/Blink browsers */
+  background-clip: text;
+  color: transparent; /* Set text color to transparent */
+  }
+  a{
+    padding: 7px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: black;
+    color:#fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+  a:hover{
+    transition: all 0.4s ease;
+    color: #f5f5f5;
+  }
+    </style>
+</head>
+<body data-aos="fade">  
+
+<section class="section">
+    {% if error_message %}
+    <p class="error">{{ error_message }}</p>
+    <a href="{% url 'myview' %}">Home</a>
+{% else %}
+    <div class="payment-title">
+        <a href="{% url 'myview' %}"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1 class="h1 gradient-text"> Wheels</h1>
+    </div>
+    <div class="display-container" >
+        <h1>congratulations <span>{{user_name}}</span>🎉 for new <span>{{car.name}}</span></h1>
+        <h1>Car Details</h1>
+        <div class="car_det">
+            <p>ID: {{ car.id }}</p>
+            <p>Color: {{ color.color_name }}</p>
+            <p>Brand: {{ car.brand }}</p>
+            <p>Brand: {{ car.year }}</p>
+            <p>Brand: {{ car.type }}</p>
+        </div>
+
+        
+
+          <img src="{% static color_image_path %}" alt="Color Image">
+    </div>
+    <a href="{% url 'myview' %}" id="explore-button">Explore more</a>
+    {% endif %}
+
+</section>
+
+  
+   
+  
+    <!-- Add any additional content or styling as needed -->
+
+</div>
+</div>
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Check if there is an error message
+        let errorMessage = "{{ error_message }}";
+    
+        if (!errorMessage) {
+            // Create a div to contain the canvas and apply styling
+            let confettiContainer = document.createElement("div");
+            confettiContainer.style.position = "absolute";
+            confettiContainer.style.top = "0";
+            confettiContainer.style.left = "0";
+            confettiContainer.style.width = "100%";
+            confettiContainer.style.height = "50%";
+            confettiContainer.style.display = "flex";
+            confettiContainer.style.justifyContent = "center";
+            confettiContainer.style.alignItems = "center";
+    
+            // Create the canvas
+            let canvas = document.createElement("canvas");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+    
+            // Append the canvas to the container
+            confettiContainer.appendChild(canvas);
+    
+            // Append the container to the body
+            document.body.appendChild(confettiContainer);
+    
+            // Create confetti on the centered canvas
+            let confetti_button = confetti.create(canvas);
+            confetti_button();
+        }
+    });
+    
+    // Assuming your "Explore" button has an ID of "explore-button"
+    var exploreButton = document.getElementById("explore-button");
+    
+    // Add a click event listener to the "Explore" button
+    exploreButton.addEventListener("click", function () {
+        // Code to execute when the "Explore" button is clicked
+        console.log("Explore button clicked!");
+    });
+  
+  </script>
+  </html>

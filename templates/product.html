@@ -1,0 +1,380 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- aos link -->
+
+    <!--web icon -->
+    <link rel="icon" href="{% static 'img/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- font family Audiowide -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+
+    <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+  <!-- Add this in the head section to load Swiper Styles from a CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- styleheet -->
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+<style>
+  .video-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    outline: none; /* Remove outline on focus (for keyboard users) */
+  }
+
+  /* Hide the controls and timeline */
+  video::-webkit-media-controls {
+    display:none !important;
+  }
+
+  /* Hide the fullscreen button */
+  video::-webkit-media-controls-enclosure {
+    display:none !important;
+  }.pay-button{
+  padding: 10px 15px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: 400;
+  background-color: black;
+  color: #f0f0f0;
+  border: 1px solid black;
+}
+.pay-button:hover{
+  transition: all 0.3s ease;
+  background-color: #f0f0f0;
+  color: black;
+}
+</style>
+</head>
+<body data-aos="fade">  
+<!-- navbar -->
+  {% include 'navbar.html' %}
+
+  <!-- product ----------------------------------------------------------------------------------------------------------->
+ 
+<div class="back-to-shop">
+    <a href="{% url 'Shop' %}"><i class="fa-solid fa-arrow-left"></i></a>
+    <h1>{{ car.name  }}</h1>    
+    <i class="fa-solid fa-car"></i>
+    
+</div>
+
+<!-- Swiper----------------------------------------------------------------------------------------------------------->
+<section class="productImage" id="carImagesContainer">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper" id="swiperWrapper">
+      <div class="swiper-slide bg-one"></div>
+
+
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+<section class="products">
+  <div class="featuresBox">
+    <a onclick="showCarSet('Exterior')" data-car-type="Exterior" class="active">Exterior</a>
+    <a onclick="showCarSet('Functionality')" data-car-type="Functionality">Specification</a>
+    <!-- <a onclick="showCarSet('Additional')" data-car-type="Additional">Additional Information</a> -->
+    <a onclick="showCarSet('Features')" data-car-type="Features">Features</a>
+  </div>
+</section>
+<!-- {% if colors %}
+    <img src="{% static colors.first.color_image_path %}" alt="">
+{% endif %} -->
+<form method="post" action="{% url 'Payment' car_id=car.id user_id=request.user.id %}" id="purchaseForm">
+<section class="productfeaturess">
+  <!-- for color -->
+  <input type="hidden" name="selectedColorId" id="selectedColorId" value="">
+  <input type="hidden" name="selectedColoredId" id="selectedColoredId" value="">
+
+  <div class="productColor-sub exterior car-set active" id="ExteriorSet">
+    {% for color_id, color_data in color_images.items %}
+        <div class="box2" data-color="{{ color_data.color_name }}" data-color-id="{{ color_id }}" style="background-color: {{ color_data.color_name }};" data-image="{% static color_data.image_path %}"></div>
+
+    {% endfor %}
+</div>
+
+
+  <!-- for Specification -->
+  <div class="productFunctionality-sub functionality car-set" id="FunctionalitySet">
+    <div class="box1"><p>{{specification.fuel_type}} fuel type</p></div>
+    <div class="box2"><p>{{specification.engine_horsepower}} engine horsepower</p></div>
+    <div class="box3"><p>{{specification.engine_torque}} engine torque</p></div>
+    <div class="box4"><p>{{specification.transmission}} transmission</p></div>
+    <div class="box3"><p>{{specification.fuel_efficiency}} fuel efficiency</p></div>
+    <div class="box4"><p>{{specification.performance_0_60}} performance 0-60</p></div>
+    <div class="box4"><p>{{specification.top_speed}} Top speed</p></div>
+  </div>
+  <!-- for Features -->
+  <div class="productFeatures-sub features car-set" id="FeaturesSet">
+    <div class="box1"><p>{{features.entry}}</p></div>
+    <div class="box2"><p>{{features.seats}}</p></div>
+    <div class="box3"><p>{{features.sunroof}}</p></div>
+    <div class="box4"><p>{{features.system}}</p></div>
+  </div>
+</section>
+
+
+
+<!-- showoff ----------------------------------------------------------------------------------------------------------->
+<section class="showOff">
+    <h1>{{car.name}}</h1>
+    {% if colors %}
+        <img src="{% static colors.first.color_image_path %}" alt="">
+    {% endif %}
+</section>
+<!-- <div class="video-container">
+  <video controls autoplay disableRemotePlayback id="myVideo">
+    <source src="{% static 'img/img/porchse/porsche718.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div> -->
+<div class="video-container">
+  {% if car_videos %}
+      {% for video in car_videos %}
+        <video controls muted>
+          <source src="{% static video.video_file.url %}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      {% endfor %}
+    
+  {% else %}
+    <p>No videos available for this car.</p>
+  {% endif %}
+</div>
+
+<!-- line ------------------------------------------------------------------------------------------------------------>
+<section class="lineSec">
+  <h1></h1>
+</section>
+<!-- detail----------------------------------------------------------------------------------------------------------->
+<section class="paymentDetails">
+    <!-- part1 -->
+   
+
+    <div class="part1">
+        <h1>Your <span>{{cars.name}}</span> Configuration</h1>
+     
+        <div class="part1-sub">
+            <i class="fa-solid fa-check"></i>         
+            <p>Standard Equipment</p>
+
+        </div>
+        <div class="part1-sub">
+            <i class="fa-solid fa-list-check"></i>
+            <p>Technical Data</p>
+        </div>
+    </div>
+    <!-- part2 -->
+    <div class="part2">
+        <div class="pay-det">
+            <div class="det-1">
+                <p>Base price</p>
+                <p>{{pricing.base_price}}$</p>
+            </div>
+            <div class="det-2">
+                <p>Premium package price</p>
+                <p>{{pricing.premium_package_price}}$</p>
+            </div>
+            <div class="det-2">
+                <p>Price for Technology</p>
+                <p>{{pricing.technology_package_price}}$</p>
+            </div>
+            <div class="det-3">
+                <p>Special Offers</p>
+                <p>{{pricing.special_offers}}</p>
+            </div>
+        </div>
+                <!-- line -->
+        <section class="lineSec">
+            <h1></h1>
+        </section>
+        <div class="pay-price">
+            <div class="price-1">
+                <p>Total price</p>
+                <p>{{total_price }}$</p>
+            </div>
+        </div>
+      
+          <!-- Your existing form fields... -->
+          {% csrf_token %}
+          <!-- Add a hidden input field to store the selected color ID -->
+        
+          <button class="pay-button" type="submit">Make Purchase</button>
+   
+      
+      
+      
+    
+    </div>
+</section>
+</form>
+
+  <!-- FOOTER -->
+  {% include 'footer.html' %}
+  </body>
+
+
+  <script src="{% static 'js/product.js' %}"></script>
+<!-- Add this at the end of your HTML file to load Swiper JavaScript locally -->
+<!-- At the end of the body -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Get the video element
+  var myVideo = document.querySelector('.video-container video');
+
+  // Check if the video element exists
+  if (myVideo) {
+    // Play the video and set loop attribute
+    myVideo.play().then(() => {
+      myVideo.setAttribute('loop', 'loop');
+    }).catch((error) => {
+      // Autoplay was prevented
+      console.error('Autoplay was prevented: ', error);
+    });
+
+    // Listen for the 'ended' event and replay the video
+    myVideo.addEventListener('ended', function () {
+      myVideo.play();
+    });
+  }
+});
+      //show car 
+  function showCarSet(carType) {
+// Remove active class from all links
+const links = document.querySelectorAll('.featuresBox a');
+links.forEach(link => link.classList.remove('active'));
+
+// Add active class to the clicked link
+const clickedLink = document.querySelector(`.featuresBox a[data-car-type='${carType}']`);
+clickedLink.classList.add('active');
+
+// Hide all car sets
+const carSets = document.querySelectorAll('.car-set');
+carSets.forEach(set => set.classList.remove('active'));
+
+// Show the selected car set
+const selectedSet = document.getElementById(`${carType}Set`);
+selectedSet.classList.add('active');
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  var swiper = new Swiper(".mySwiper", {
+    cssMode: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    mousewheel: true,
+    keyboard: true,
+  });
+
+  const carImagesContainer = document.getElementById('carImagesContainer');
+  const colorBoxes = document.querySelectorAll('.productColor-sub .box2');
+
+  colorBoxes.forEach((box, index) => {
+    box.addEventListener('click', function () {
+      // Get the selected color and image path from the data attributes
+      const selectedColored = box.getAttribute('data-color-id')
+      const selectedColor = box.getAttribute('data-color');
+      const imagePath = box.getAttribute('data-image');
+
+      // Update the background image of the Swiper slide
+      updateSwiperSlides(imagePath);
+
+      // Remove active class from all color boxes
+      colorBoxes.forEach((otherBox) => {
+        otherBox.classList.remove('active');
+      });
+
+      // Add active class to the clicked color box
+      box.classList.add('active');
+    });
+
+    // Trigger a click event on the first color box to initially show its images
+    if (index === 0) {
+      box.click();
+    }
+  });
+
+  function updateSwiperSlides(imagePath) {
+    const swiperWrapper = document.getElementById('swiperWrapper');
+    swiperWrapper.innerHTML = `<div class="swiper-slide bg-one" style="background-image: url('${imagePath}');"></div>`;
+  }
+  let selectedColor; // Variable to store the selected color
+let selectedColored; // Variable to store the selected color ID
+
+colorBoxes.forEach(box => {
+    box.addEventListener('click', function () {
+        // Get the selected color and image path from the data attributes
+        selectedColored = box.getAttribute('data-color-id');
+        selectedColor = box.getAttribute('data-color');
+        
+        // Update the value of the hidden input fields
+        const selectedColorInput = document.getElementById('selectedColorId');
+        const selectedColoredInput = document.getElementById('selectedColoredId');
+
+        if (selectedColorInput) {
+            selectedColorInput.value = selectedColor;
+        }
+        if (selectedColoredInput) {
+            selectedColoredInput.value = selectedColored;
+        }
+
+        // Update Swiper slides
+        updateSwiperSlides(selectedColor, imagePaths);
+
+        // Remove active class from all color boxes
+        colorBoxes.forEach(otherBox => {
+            otherBox.classList.remove('active');
+        });
+
+        // Add active class to the clicked color box
+        box.classList.add('active');
+
+        // Update the Swiper
+        swiper.update();
+    });
+});
+
+    // Trigger a click event on the first color box to initially show its images
+    colorBoxes[0].click();
+});
+</script>
+</html>

@@ -1,0 +1,270 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head><!--web icon -->
+    <link rel="icon" href="../CODE/needimgofrn/wheels-icon-png-15.png" type="image/x-icon">
+    <!--  --> <link rel="icon" href="{% static 'img/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+    <!-- icon  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    <style>
+   * {
+            margin: 0%;
+            padding: 0%;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../needimgofrn/landing.jpg') center/cover no-repeat;
+            object-fit: cover;
+            filter: brightness(10%);
+            z-index: -1;
+            opacity: 1;
+        }
+
+        .form {
+            background-color: white;
+            width: 300px;
+            padding: 20px 20px;
+            height: auto;
+            z-index: 1;
+            display: block;
+            border-radius: .4rem;
+            border: 1px solid rgba(98, 95, 95, 0.2);
+            box-shadow: 0 0 0.1rem #fff, 0 0 .2rem #fff, 0 0 1.1rem #fff;
+            transition: opacity 0.5s ease-in-out; /* Add transition for smoother visibility change */
+        }
+
+        header .backup {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        header h1 {
+            text-align: center;
+            font-family: "Audiowide", sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #212529;
+            margin-bottom: 1rem;
+        }
+
+        .backup h2 {
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #212529;
+            margin-bottom: 1rem;
+        }
+
+        .backup i {
+            
+            color: #212529;
+            padding: 4px;
+            cursor: pointer;
+            font-size: .9rem;
+            border-radius: .5rem;
+            transition: background-color 0.3s, transform 0.3s ease;
+        }
+
+        .backup i:hover {
+            transform: scale(1.1);
+        }
+
+        header form .input-field {
+            width: 100%;
+            border: 1px solid #212529;
+            padding: 10px;
+            border-radius: .4rem;
+            text-transform: none;
+            font-size: 1rem;
+            background-color: white;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 1rem;
+        }
+
+        header form .submit {
+            width: 100%;
+            padding: 10px;
+            border-radius: .4rem;
+            cursor: pointer;
+            border: none;
+            text-transform: none;
+            font-size: 1rem;
+            background-color: #212529;
+            font-weight: 500;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .submit:hover {
+            border: 1px solid #212529;
+            background-color: white;
+            color: #212529;
+        }
+
+        .line-bulk {
+            display: flex;
+            height: auto;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .line-bulk h3 {
+            width: 50px;
+            height: 2px;
+            background-color: #212529;
+            border-radius: .4rem;
+            margin: 0 10px;
+        }
+
+        .line-bulk p {
+            flex-grow: 1;
+            text-align: center;
+            height: 2spx;
+            font-size: 9px;
+            font-weight: 400;
+            text-transform: uppercase;
+            width: 100%;
+            border-radius: .4rem;
+            margin: 0 10px;
+        }
+
+        .checkMail {
+            width: 100%;
+            padding: 10px;
+            border-radius: .4rem;
+            cursor: pointer;
+            text-transform: capitalize;
+            border: none;
+        
+            border: 1px solid #212529;
+            font-size: 1rem;
+            background-color: white;
+            font-weight: 400;
+            color: #212529;
+            margin-bottom: 1rem;
+        }
+
+        .checkMail:hover {
+            background-color: #212529;
+            color: white;
+        }
+
+        .form p {
+          
+            color: #212529;
+            font-weight: 400;
+            text-transform: capitalize;
+            font-size: 10px;
+            
+        }
+
+        p span a {
+            text-decoration: underline;
+            cursor: pointer;
+            color: #212529;
+        }   .error-message {
+        text-transform: capitalize;
+        text-align: center;
+        font-size: 10px;
+        color: red; /* Change the text color */
+        opacity: 1; /* Initial opacity set to 1 */
+        transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out; /* Add transition for smoother visibility change */
+       
+    }   </style>
+</head>
+<body>
+    <header>
+        <div class="background-container"></div>
+        <form action="{% url 'Login' %}" method="post" class="form">
+            {% csrf_token %}
+            <h1>Wheels</h1>
+            <div class="backup">
+                <h2>Welcome</h2>
+                
+            </div>
+     
+            <input type="text" placeholder="Enter Username" class="input-field" name="username" id="username" required>
+            <input type="password" placeholder="password" class="input-field pass" name="password" id="password" required>
+
+            <input type="submit" class="submit" value="Continue" >
+            <div class="line-bulk">
+                <h3></h3>
+                <p>Login without password</p>
+                <h3></h3>
+            </div>
+            <button class="checkMail">
+                <i class="fa-regular fa-envelope"></i> continue with Email
+            </button>
+            <p>Dont have an account <span><a href="{% url 'Signup' %}">SignUp</a></span></p>
+            <p>Forgot password? <span><a href="#">Recover</a></span></p>
+            {% if error_message %}
+            <div class="error-message">
+                {{ error_message }}
+            </div>
+            {% endif %}
+        </form>
+     
+    </header>
+</body>
+<!-- ... Your existing HTML code ... -->
+
+<script>
+     document.addEventListener('DOMContentLoaded', function () {
+        function hideErrorMessage() {
+            var errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(function (errorMessage) {
+                errorMessage.style.opacity = '0'; // Set opacity to 0 for smooth hiding
+            });
+
+            // After the transition is complete, set display to none
+            setTimeout(function () {
+                errorMessages.forEach(function (errorMessage) {
+                    errorMessage.style.display = 'none';
+                });
+            }, 500); // Adjust the timeout to match the transition duration
+        }
+
+        // Call the function after 3000 milliseconds (3 seconds)
+        setTimeout(hideErrorMessage, 3000);
+    });
+</script>
+
+<!-- ... Your existing HTML code ... -->
+
+
+
+</html>

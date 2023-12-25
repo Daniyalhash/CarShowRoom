@@ -1,0 +1,215 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+      <!-- aos link -->
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+      <!--web icon -->
+      <link rel="icon" href="../CODE/needimgofrn/wheels-icon-png-15.png" type="image/x-icon">
+      <!--  -->
+      <!-- icon  -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <!-- font family -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+      <!-- styleheet -->
+            <!-- styleheet -->
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+</head>
+<body data-aos="fade">  
+
+      <!-- hEADER --------------------------------------------------------------------------------------------------------->
+      {% include 'navbar.html' %}
+<!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+
+<section class="frontZone" >
+  <!-- <div class="logo-container" id="fullLogo">
+    <h1>Wheels</h1></div> -->
+  <div class="div">
+    <div class="div-mid"data-aos="fade" >
+      <h2 class="font-effect-outline">Driving Dreams, Fueling Enthusiasm</h2>
+
+    </div>
+  <video muted="" autoplay="" loop="" class="video-container">
+  <source src="../CODE/img/img/Untitled video - Made with Clipchamp (1).mp4" type="video/mp4">
+  </video>
+  <button class="switch-btn">
+  <span class="play">
+      <i class="fas fa-play"></i>
+  </span>
+  <span class="pause">
+      <i class="fas fa-pause"></i>
+  </span>
+  <span class="switch"></span>
+  </button>
+  </div>
+</section>
+<!-- middle body 1------------------------------------------------------------------------------------------------------->
+<section class="middleSection"data-aos="fade" >
+  <h1>Models</h1>
+  <div class="model-collection" data-aos="fade" >
+    <div class="parent">
+      <div class="child bg-one">
+      </div>
+      <h4>Civic 2023</h4>
+      <h5>Comfortable as you want</h5>
+
+    </div>
+    <div class="parent">
+      <div class="child bg-two">
+      </div>
+      <h4>Lexus 2023</h4>
+      <h5>More luxuries you want</h5>
+
+    </div>
+    <div class="parent">
+      <div class="child bg-third">
+      </div>
+      <h4>Porsche 2023</h4>
+      <h5>More fast you want</h5>
+
+    </div>
+  </div>
+</section>
+<!-- line ------------------------------------------------------------------------------------------------------->
+<section class="lineSec">
+  <h1></h1>
+</section>
+<!-- middle body 2------------------------------------------------------------------------------------------------------->
+<section class="middleSectionSec"data-aos="fade">
+  <h1>Explore your wheels</h1>
+  <div class="explore-container">
+    <a onclick="showCarSet('suv')" data-car-type="suv" class="active">SUV</a>
+    <a onclick="showCarSet('sedan')" data-car-type="sedan">SEDAN</a>
+    <a onclick="showCarSet('electric')" data-car-type="electric">ELECTRIC</a>
+  </div>
+  
+  <div class="explore-container-img" >
+    <div id="suvSet" class="explore-container-img car-set active">
+      <!-- SUV Cars -->
+      <div class="explore-details-small">
+        <img src="../CODE/img/hond/car-1/hond-red/large-1__1_-removebg-preview.png" alt="">
+        <h1>Civic</h1>
+      </div> 
+      <div class="explore-details-small">
+        <img src="../CODE/img/hond/car-1/hond-red/large-1__1_-removebg-preview.png" alt="">
+        <h1>Civic</h1>
+      </div> 
+    </div>
+    <div id="sedanSet" class="explore-container-img car-set">
+      <!-- Sedan Cars -->
+      <div class="explore-details-small" onclick="showCarDetails('../CODE/img/lexus/car-1/lexus-red/large-2-removebg-preview.png','Lexus')">
+        <img src="../CODE/img/lexus/car-1/lexus-red/large-2-removebg-preview.png" alt="">
+        <h1>Lexus</h1>
+      </div>     
+    </div>
+ 
+      <!-- Electric Cars -->
+      <div id="electricSet" class="explore-container-img car-set">
+        <!-- Electric Cars -->
+        <div class="explore-details-small" onclick="showCarDetails('../CODE/img/porchse/car-1/porche-white/iris__2_-removebg-preview.png','Porche')">
+          <img src="../CODE/img/porchse/car-1/porche-white/iris__2_-removebg-preview.png" alt="">
+          <h1>Porsche</h1>
+        </div> <div class="explore-details-small" onclick="showCarDetails('../CODE/img/porchse/car-1/porche-white/iris__2_-removebg-preview.png','Porche')">
+          <img src="../CODE/img/porchse/car-1/porche-white/iris__2_-removebg-preview.png" alt="">
+          <h1>Porsche</h1>
+        </div>
+        <!-- Add more Electric cars as needed -->
+      </div>    
+ 
+    
+
+  </div>
+  <div class="explore-details-large" >
+    <div id="carDetails" class="explore-details-large-img">
+      <!-- Large car details will be dynamically updated -->
+    </div>
+  </div>
+</section>
+<!-- middle body 3------------------------------------------------------------------------------------------------------->
+<section class="middleSectionDetails"data-aos="fade">
+  <div class="box">
+    <h1 class="heading-h1" id="heading-h1">This is a new experience</h1>
+    <div class="upper-div" id="upperbox"></div>
+    <div class="lower-div" id="lowerbox">
+      <video muted="" autoplay="" loop="" class="video-container">
+        <source src="../CODE/img/img/Untitled video - Made with Clipchamp (1).mp4" type="video/mp4">
+      </video>
+      <div class="lower-div-content">
+        <h1>A Nissan for everyone</h1>
+        <div class="content-button">
+          <h3>Find your Nissan</h3>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- line ------------------------------------------------------------------------------------------------------->
+<section class="lineSec">
+  <h1></h1>
+</section>
+<!-- middle body 4------------------------------------------------------------------------------------------------------->
+<section class="middleSectionLogo"data-aos="fade">
+  <div class="car-brand">
+    <img src="../CODE/needimgofrn/logo1.jpg" alt="Toyota Logo">
+  </div>
+
+  <div class="car-brand">
+    <img src="../CODE/needimgofrn/logo2.jpg" alt="Toyota Logo">
+  </div>
+
+  <div class="car-brand">
+    <img src="../CODE/needimgofrn/logo3.jpg" alt="Toyota Logo">
+  </div>
+
+  <div class="car-brand">
+    <img src="../CODE/needimgofrn/logo4.jpg" alt="Toyota Logo">
+  </div>
+
+  <div class="car-brand">
+    <img src="../CODE/needimgofrn/logo5.jpg" alt="Toyota Logo">
+  </div>
+
+  <div class="car-brand">
+    <img src="../CODE/needimgofrn/logo6.jpg" alt="Toyota Logo">
+  </div>
+
+  <div class="car-brand">
+    <img src="../CODE/needimgofrn/logo7.jpg" alt="Toyota Logo">
+  </div>
+
+  <div class="car-brand">
+    <img src="../CODE/needimgofrn/logo8.jpg" alt="Toyota Logo">
+  </div>
+
+  <div class="car-brand">
+    <img src="../CODE/needimgofrn/logo9.jpg" alt="Toyota Logo">
+  </div>
+</section>
+
+<!--fOOTER  ------------------------------------------------------------------------------------------------------->
+{% include 'footer.html' %}
+    </body>
+
+<!-- java script -->
+<!-- java script -->
+<script src="{% static 'JS/index.js' %}"></script>
+<!-- our aos data -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</html>

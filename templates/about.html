@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- aos link -->
+    <link rel="stylesheet" href="{% static 'path/to/aos.css' %}" />
+    <link rel="icon" href="{% static 'img/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+    <!--web icon -->
+    <link rel="icon" href="{% static 'CODE/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- font family Audiowide -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+
+    <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+
+    <!-- styleheet -->
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+<style>
+    .member{
+    display: flex;
+}.mem1 {
+    position: relative; /* Add position: relative; to make z-index work */
+    padding: 20px;
+    width: 300px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom-right-radius: 70px;
+}.mem1 h2 {
+    font-size: 20px;
+    margin-top: -40px;
+    font-weight: 700;
+    color: #000000;
+    position: relative; /* Add position: relative; to make z-index work */
+    z-index: 1; /* Set a higher z-index value */
+}
+
+.mem1 h6 {
+    margin-top: -30px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #545454;
+}
+</style>
+</head>
+<body data-aos="fade">  
+<!-- navbar -->
+  {% include 'navbar.html' %}
+  <!-- content ---------------------------------------------------------------------------------------------------->
+<section class="showAbout">
+    <div class="contentAbout">
+        <h1>About Us</h1>
+        <p>Wheels.com is not only a hub where buyers and sellers can interact, but it is also a comprehensive automotive portal</p>
+        <a href="#team"><i class="fa-solid fa-arrow-down"></i></a>
+    </div>
+    <div class="contentImage">
+        <div class="imageDiv"></div>
+    </div>
+</section>
+<!-- line---------------------------------------------------------------------------------------------------->
+<section class="line">
+    <h1></h1>
+</section>
+<!-- TEAM ---------------------------------------------------------------------------------------------------->
+<section id="team" class="team">
+    <div class="person">
+        <h1>Team</h1>
+        <div class="member">
+            <div class="mem1">
+                <img src="{% static 'img/needimgofrn/suneel.jpg' %}" alt="">
+                <h2>Suneel Bunj</h2>
+                <h6>Chairman</h6>
+                <p>Suneel Bunj eats, drinks and sleeps cars 24/7, 365 and knows all the super car owners across Pakistan.</p>
+            </div>
+            <div class="mem1">
+                
+                <img src="{% static 'img/needimgofrn/user-2.jfif' %}" alt="">
+                <h2>Saad Ahter Ali</h2>
+                <h6>Chief Executive Officer</h6>
+                <p>Saad Ahter is a Serial Entrepreneur. Founder & CEO of multiple software products & services companies.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- FOOTER -->
+  {% include 'footer.html' %}
+  </body>
+  
+  <!-- java script -->
+  <!-- java script -->
+  <script src="{% static 'js/index.js' %}"></script>
+  <!-- our aos data -->
+  <script src="{% static 'js/aos.js' %}"></script> <script>
+    //animation-------------------------------------------------------------------------------------------------------------
+ AOS.init({  // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 1000,});
+  </script>
+    </html>

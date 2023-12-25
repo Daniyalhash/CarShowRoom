@@ -1,0 +1,495 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="{% static 'img/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+  margin: 0%;
+  padding: 0%;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+
+}body {
+  margin: 0;
+
+}
+
+/* .logo-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  background-color: #000000;
+  transition: opacity 3s ease-in-out;
+}
+.logo-container h1{
+  font-family: "Audiowide", sans-serif;
+  font-size: 12rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+    background: linear-gradient(6deg, rgba(255, 255, 255, 1) 0%, rgba(33, 37, 41, 0.8232758620689655) 100%);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent; 
+
+  position: absolute;
+
+  
+}
+
+.div{
+  display: none;
+} */
+/* header--------------------------------------------------------------------------------------------------------------- */
+header {
+height: 15vh;
+position: relative;
+display: flex;
+background-color: black;
+
+}
+
+header nav {
+position: absolute;
+top: 20px; /* Adjust the top position as needed */
+right: 20px; /* Adjust the right position as needed */
+/* padding:10px 20px; */
+
+width: auto;
+height: 50px;
+background:transparent;
+border-radius: 8px;
+font-size: 0;
+}
+
+ul {
+list-style: none;
+display: flex;
+align-items: center;
+text-align: center;
+justify-content: center;
+}
+
+ul li {
+margin-right: 20px;
+}
+nav a{
+font-size: 10px;
+text-transform: uppercase;
+color: #fff;
+text-decoration: none;
+line-height: 50px;
+position: relative;
+font-weight: 100;
+z-index: 1;
+letter-spacing: 1px;
+display: inline-block;
+text-align: center;
+}
+header nav .animation{
+position: absolute;
+/* height: 100%; */
+  height: 5px;
+/* height: 5px; */
+bottom:0;
+/* bottom: 0; */
+z-index: 0;
+background: rgb(255,255,255);
+background: linear-gradient(6deg, rgba(255,255,255,1) 0%, rgba(33,37,41,0.8232758620689655) 100%);
+border-radius: 8px;
+transition: all .5s ease 0s;
+}
+
+  nav a:nth-child(1){
+      width: 100px;
+  }
+  nav .start-home, a:nth-child(1):hover~.animation{
+      width: 100px;
+      left: 0;
+  }
+  nav a:nth-child(2){
+      width: 100px;
+  }
+  nav a:nth-child(2):hover~.animation{
+      width: 100px;
+      left: 100px;
+  }
+  nav a:nth-child(3){
+      width: 100px;
+  }
+  nav a:nth-child(3):hover~.animation{
+      width: 100px;
+      left: 200px;
+  }
+  nav a:nth-child(4){
+      width: 100px;
+  }
+  nav a:nth-child(4):hover~.animation{
+      width: 100px;
+      left: 300px;
+  }
+  nav a:nth-child(5){
+      width: 100px;
+  }
+  nav a:nth-child(5):hover~.animation{
+      width: 100px;
+      left: 400px;
+  }  nav a:nth-child(6){
+    width: 100px;
+  }
+  nav a:nth-child(6):hover~.animation{
+    width: 100px;
+    left: 500px;
+   
+  } nav a:nth-child(7){
+  width: 100px;
+  }
+  nav a:nth-child(7):hover~.animation{
+  width: 100px;
+  left: 100px;
+  }
+  nav .fa-magnifying-glass,
+  nav .fa-heart{
+    padding: 10px;
+
+    border-radius: 50%;
+  } 
+
+  header .h1 {
+      font-family: "Audiowide", sans-serif;
+          font-size: 2rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          
+          position: absolute;
+          top: 23px; /* Adjust the top position as needed */
+          left: 30px; /* Adjust the right position as needed */
+      }
+
+
+/* Add this to your existing styles */
+/* Add this to your existing styles */
+.nav-link {
+  transition: opacity 0.3s ease; /* Add a transition effect for smoother hiding */
+}
+
+.nav-link.hidden {
+  opacity: 0;
+  pointer-events: none; /* Disable pointer events for hidden links */
+}
+.search-box {
+  display: none;
+  position: absolute;
+  top: -5px; /* Adjust the top padding */
+  width: 130%;
+  right: 0;
+  background-color: inherit;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-box input {
+  width: calc(100% - 25px);
+  background-color: inherit;
+  color: #f0f0f0; /* Light color for text */
+  font-size: 20px;
+  font-weight: 100;
+  border: none;
+  border-radius: 3px;
+  padding-left: 30px;
+}
+.search-box i.fa-magnifying-glass {
+  position: absolute;
+  left:10px;
+  top: 10px;
+  font-size: 15px;
+  color: #fff;
+  z-index: 1; /* Ensure the icon is above the input */
+}
+.search-box button {
+  padding: 8px 10px;
+  border: none;
+  color: #fff;
+  background-color: inherit;
+  border-radius: 3px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.search-box input:focus {
+  /* Add your styles for the focused state */
+  outline: none; /* Remove the default focus outline if needed */
+  border-color: none; /* Change border color when focused */
+  /* Add more styles as per your design */
+}
+.search-box input::placeholder {
+  color: white; /* Set the color of the placeholder text */
+   /* Optionally, set font style */
+  font-weight: 100;  font-family: 'Poppins', sans-serif;
+}
+/* sign in  *//* Style the subnav content - positioned absolute */
+nav .subnav-content {
+  display: none;
+  position: absolute;
+  left: 0%;
+  top: 70px;
+  background-color: black;
+  width: 100%;
+  height: 130px;
+  z-index: 2;
+  text-align: center;
+  justify-content: space-evenly;
+  align-items: center; opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.subnav-content img{
+  width: auto;
+  height: 100px;
+}
+/* Style the subnav links */
+.subnav-content .sub-1{
+  display: block;
+  padding: 10px;
+   justify-content: center;
+
+
+
+}
+.sub-1 a {
+  
+  color: white;
+  text-decoration: none;
+}
+.sub-1 p {
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  color: white;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+.sub-1 a {
+  border: 1px solid #212529;
+  background-color: white;
+  color: #2c2e2f;
+  padding:4px 10px;font-weight: 500;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  text-decoration: none;
+}
+.sub-1 a:hover {
+  transition: all 0.4s ease;
+  background-color: #2c2e2f;
+  color: white;
+ 
+}.sub-2{
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+
+}
+.sub-2 a {
+  font-weight: 400;
+
+  color: white;
+  text-decoration: none;
+}
+.sub-2 p {
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 12px;
+  color: white;
+  text-decoration: underline;
+  
+}
+.sub-2 a {display: block;
+  
+
+  color: #ffffff;
+  padding:4px 10px;
+  font-weight: 400;
+  cursor: pointer;
+  text-transform: capitalize;
+text-align: left;
+  text-decoration: underline;
+}
+.sub-2 a:hover {
+  transition: all 0.4s ease;
+  color: #2c2e2f;
+  
+}
+/* Display subnav content when hovering over .signIn */
+nav .signIn:hover + .subnav-content {
+  display: flex;
+  transition: all 0.3s ease;
+}
+/* Add this to your existing styles */
+/* The subnavigation menu */
+/* Add this to your existing styles */
+
+/* header after */
+header::after {
+content: "";
+position: absolute;
+top: 0;
+background: rgba(0, 0, 0, 0.5);
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+}
+.gradient-text {
+  background: linear-gradient(6deg, rgba(255, 255, 255, 1) 0%, rgba(33, 37, 41, 0.8232758620689655) 100%);
+  -webkit-background-clip: text; /* For WebKit/Blink browsers */
+  background-clip: text;
+  color: transparent; /* Set text color to transparent */
+  }
+</style>
+<body>
+  <header>
+    <nav>
+      
+      <a href="{% url 'myview' %}" class="nav-link">home</a>
+      <a href="{% url 'About' %}" class="nav-link">About</a>
+      <a href="{% url 'Shop' %}" class="nav-link">Shop</a>
+      <a href="{% url 'Contact' %}" class="nav-link">contact</a>
+      <a href="#" class="signIn nav-link">Profile</a>
+      <div class="subnav-content">
+        {% if request.user.is_authenticated %}
+          <div class="sub-1" data-aos="fade">
+              <p>sign in or create account</p>
+              <a href="{% url 'Logout' %}">log in</a>
+                    
+              <p>{{ username }}!</p>
+          
+          </div>
+          
+          <img src="{% static 'img/needimgofrn/min.png' %}" alt="">
+          <div class="sub-2">
+            <a href="{% url 'Dashboard' %}">Dashboard</a>
+            
+          </div>
+          {% else %}
+    
+         
+            <div class="sub-1" data-aos="fade">
+                <p>sign in or create account</p>
+                <a href="{% url 'Signup' %}">sign in</a>
+                <a href="{% url 'Login' %}">log in</a>
+            </div>
+            
+            <img src="{% static 'img/needimgofrn/min.png' %}" alt="">
+            <div class="sub-2">
+             
+              
+            </div>
+            {% endif %}
+    </div>
+      <a href="{% url 'like' %}" class="nav-link"><i class="fa-regular fa-heart"></i></a>
+      <a href="#" class="search-icon nav-link"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <div class="animation start-home nav-link"></div>
+      <form method="get" action="{% url 'search' %}" method="get">
+        <div class="search-box">
+            <input type="text" name="search" id="search" placeholder="Search..." id="searchInput">
+            <button class="submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="close-search"><i class="fa-solid fa-circle-xmark"></i></button>
+        </div>
+    </form>
+    </nav>
+    <!-- sub nav -->
+   
+
+    <h1 class="h1 gradient-text nav-link">Wheels</h1>
+  </header>
+
+</body>
+<script>
+  //saerh----------------------------------------------------------------------------------------------------------------
+  document.addEventListener('DOMContentLoaded', function() {
+  const searchIcon = document.querySelector('.search-icon');
+  const searchBox = document.querySelector('.search-box');
+  const searchInput = document.getElementById('searchInput');
+
+  const closeSearch = document.querySelector('.close-search');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  searchIcon.addEventListener('click', function() {
+    searchBox.style.display = 'flex';
+    navLinks.forEach(link => link.classList.add('hidden'));
+  });
+
+  closeSearch.addEventListener('click', function() {
+    searchBox.style.display = 'none';
+    navLinks.forEach(link => link.classList.remove('hidden'));
+  });
+
+  // Add an input event listener to the search input
+  searchInput.addEventListener('input', function() {
+    const searchTerm = searchInput.value.trim();
+
+    // Make an AJAX request to your server to get search results
+    // Replace 'your_server_endpoint' with the actual endpoint on your server
+    fetch(`/your_server_endpoint/?search=${searchTerm}`)
+      .then(response => response.json())
+      .then(data => {
+        // Handle the data and update the UI with search results
+        console.log(data); // Replace with your logic
+      })
+      .catch(error => console.error('Error:', error));
+  });
+});
+
+      
+      //sub nav bar----------------------------------------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", function () {
+  var signInLink = document.querySelector('.signIn');
+  var subnavContent = document.querySelector('.subnav-content');
+
+  // Add a click event listener to the signInLink
+  signInLink.addEventListener('click', function (event) {
+    event.stopPropagation(); // Prevent the click event from reaching the document
+
+    // Toggle the display of the subnavContent
+    if (subnavContent.style.display === 'flex') {
+      subnavContent.style.display = 'none';
+      subnavContent.style.opacity = '0';
+    } else {
+      subnavContent.style.display = 'flex';
+      subnavContent.style.opacity = '1';
+    }
+  });
+
+  // Add a click event listener to the document to hide subnavContent when clicking outside
+  document.addEventListener('click', function () {
+    subnavContent.style.display = 'none';
+    subnavContent.style.opacity = '0';
+  });
+
+  // Add a click event listener to the subnavContent to prevent hiding when clicking inside it
+  subnavContent.addEventListener('click', function (event) {
+    event.stopPropagation(); // Prevent the click event from reaching the document
+  });
+});  //animation-------------------------------------------------------------------------------------------------------------
+  AOS.init({  // offset (in px) from the original trigger point
+    delay: 0, // values from 0 to 3000, with step 50ms
+    duration: 1000,});
+</script>
+</html>

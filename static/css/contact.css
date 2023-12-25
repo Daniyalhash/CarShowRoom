@@ -1,0 +1,245 @@
+
+*{
+  margin: 0%;
+  padding: 0%;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+
+}
+
+/* content */
+.content{
+    padding: 20px;
+    height: 80vh;
+    }
+    
+    .content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-bottom-right-radius:70px ;
+        background: url('../../static/img/needimgofrn/Mercedes_C300D_0003.jpg') center/cover no-repeat;
+
+        width: 100%;
+        height: 100%;
+        filter: brightness(70%); /* Adjust the brightness level as needed (e.g., 70% makes it darker) */
+        z-index: -1;
+        opacity: 1;
+    }/* side lgo */
+
+.sideLogo h1{
+    font-size: 30px;
+    font-weight: 700;
+      margin-top: -20px;
+    letter-spacing: -1px;
+    color: #fff;
+}
+.sideLogo p{
+    margin-top: -10px;
+    color: #fff;
+}
+
+
+/* location---------------------------------------------------------------------------------------------------- */
+.location{
+    height: 70vh;
+    padding: 20px;
+    
+}
+.location h2{
+    font-size: 40px;
+    margin: 20px 70px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-right: -10px; /* Add some right margin to separate the icon from the text */
+
+    color: #212529;
+
+}
+.socialLocation {
+    margin: 40px 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.div-1 {
+    width: 30%;
+    text-align: center; /* Center the text content horizontally */
+}
+
+.div-1 i {
+    background-color: #212529;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 20px; /* Increase the font size for better visibility */
+}
+.div-1 h1{
+    color: #212529;
+}
+.div-1 p {
+    color: #212529;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 10px; /* Add some top margin for spacing */
+}
+
+
+/* line---------------------------------------------------------------------------------------------------- */
+
+.line {
+    display: flex;
+justify-content: center;
+    text-align: center;
+    border-radius: 20px;
+
+}
+.line h1{
+    background-color: #8e8e95;
+    width: 90%;
+    height: 2px;
+}
+ /*content ---------------------------------------------------------------------------------------------------- */
+.signIn-container{
+    height: 100vh;
+    padding: 20px;
+    
+    display: flex;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+.signIn-container h2{
+    font-size: 40px;
+    margin: -15px 30px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-right: -10px; /* Add some right margin to separate the icon from the text */
+
+    color: #212529;
+
+}
+.messageUs{
+    display: block;
+    padding: 20px;
+    width: 60%;
+}
+.messageUs p{
+    margin: -15px 30px;
+    color: #212529;    font-size: 15px;
+    font-weight: 400;
+}
+.messageUs form{
+    margin: 35px 10px;
+    /* background: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter:  blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.37); */
+
+}
+.signIn-container form label {
+ font-weight: 600;
+ color: #212529;
+}
+.signIn-container form input {
+    display: block;
+    margin-bottom: 10px;
+}
+.inner-text
+{
+    justify-content: flex-start;
+    margin-bottom: 10px;
+
+    display: flex;
+}
+.inner-text i{
+    margin-left: -15px;  
+    margin-top: 10px; 
+    color: #545454;
+
+}
+.signIn-container form .input-container {
+    align-items: center;
+    margin-left: 20px; /* Add left margin to align with the input fields */
+}
+
+.signIn-container form input{
+    padding: 10px 0px;
+    width: 250px; /* Use 100% width to make the input take up the remaining space */
+    border: none;
+    border-bottom: 1px solid #212529;
+    margin-bottom: 10px;}
+.signIn-container form input:focus {
+    border-bottom: 1px solid #212529;
+    outline: none;
+}
+.signIn-container form input::placeholder {
+    font-weight: 800;
+    font-size: 14px;
+    color: #ccc9c9;
+}
+/* Target the placeholder text within the .inner-text textarea */
+.signIn-container form .inner-text textarea::placeholder {
+    font-weight: 800;
+    font-size: 14px;
+    color: #ccc9c9;
+}
+.signIn-container form .inner-text textarea:focus {
+    border-bottom: 1px solid #000;
+    outline: none;
+}
+.inner-text textarea {
+    width: 250px;
+    height: 100px;
+    border: none; /* Remove default textarea border */
+    border-bottom: 1px solid #000;
+    padding: 5px; /* Add padding for spacing */
+}
+.submit {        width: 150px;
+
+    background-color: #212529;
+    color: #fff;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 12px;
+    transition: all 0.3s linear;
+}
+
+.submit:hover{
+    background-color: #545454;
+    color: #fff; /* Change text color on hover */
+}
+
+
+ /* Apply the animation to your element */
+.slide-in {
+    opacity: 0;
+}
+
+.animate {
+    animation: slide-in 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

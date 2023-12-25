@@ -1,0 +1,454 @@
+
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+  
+  }body {
+    margin: 0;
+  
+  }
+  
+
+  /* header--------------------------------------------------------------------------------------------------------------- */
+  header {
+  height: 15vh;
+  position: relative;
+  display: flex;
+  background-color: black;
+  
+  }
+  
+  header nav {
+  position: absolute;
+  top: 20px; /* Adjust the top position as needed */
+  right: 20px; /* Adjust the right position as needed */
+  /* padding:10px 20px; */
+  width: auto;
+  height: 50px;
+  background:transparent;
+  border-radius: 8px;
+  font-size: 0;
+  }
+  
+  nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  }
+  
+  nav ul li {
+  margin-right: 20px;
+  }
+  nav a{
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  line-height: 50px;
+  position: relative;
+  font-weight: 100;
+  z-index: 1;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-align: center;
+  }
+  
+
+  
+  
+  
+    header .h1 {
+        font-family: "Audiowide", sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            
+            position: absolute;
+            top: 23px; /* Adjust the top position as needed */
+            left: 30px; /* Adjust the right position as needed */
+        }
+  
+  
+
+ 
+  /* Add this to your existing styles */
+  /* The subnavigation menu */
+  /* Add this to your existing styles */
+  
+  /* header after */
+ 
+  .gradient-text {
+  background: linear-gradient(6deg, rgba(255, 255, 255, 1) 0%, rgba(33, 37, 41, 0.8232758620689655) 100%);
+  -webkit-background-clip: text; /* For WebKit/Blink browsers */
+  background-clip: text;
+  color: transparent; /* Set text color to transparent */
+  }
+
+  /* ----------------------------------------------------------------------------------------------------- */
+  /* middleSection */
+  .middleSection {
+  height: auto;
+
+  }
+  .middleSection h1{
+  font-family: 'Poppins',sans-serif;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 100;
+  color: #212529;
+  }
+  .middleSection .model-collection {
+
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;  place-items: center; /* Center the grid items both horizontally and vertically */
+  
+  }
+  
+  .parent {
+  position: relative;
+  width: 100%;
+  margin: 20px;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+align-items: flex-start;
+  flex-direction: column;
+  }
+  
+  .parent .child {
+  flex-grow: 1;
+  object-fit: cover;
+  background-position: center 10%; /* Adjust the values to move the image position */
+  
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  transition: transform 0.5s ease;
+  }
+  .parent a
+  {
+    text-transform: capitalize;
+  text-align: left;
+  padding: 10px;
+  font-family: "Poppins",sans-serif;
+  color: #212529;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 500;        
+  }
+  .parent a:hover{
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    text-shadow: 
+    0 0 0.1rem #2c2e2f,
+    0 0 1rem #fff;
+    text-decoration: underline;
+  }
+  .parent:hover .child {
+  transform: scale(1.2);
+  color:#363737;
+  }
+  
+  .bg-one{
+  background-image: url('../needimgofrn/Mercedes_C300D_0003.jpg');
+  }.bg-two{
+  background-image: url('../needimgofrn/lexus.jpg');
+  }.bg-third{
+  background-image: url('../needimgofrn/porche.jpg');
+  }
+  /* show car carGarage */
+  .Garage{
+    display: block;
+  }
+  .div-sec{
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+  }
+  .Garage h1{
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #212529;
+    }
+    .Garage a{
+      font-family: 'Poppins',sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    color: #212529;
+    }
+    .carGarage {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust column width as needed */
+      gap: 20px;
+    }
+    
+    .car {
+      position: relative;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f0f0f0; /* Optional: Add a background color to the car item */
+      border-radius: 10px; /* Optional: Add rounded corners to the car item */
+    }
+    
+    
+    
+    .delete-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: red; /* Adjust color as needed */
+      font-size: 20px;
+    }
+    
+    .car img {
+      width: 100%; /* Adjust as needed */
+      height: auto; /* Maintain aspect ratio */
+    }
+    
+    .car .car-det {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .car-det h1 {
+      font-size: 35px;
+      font-weight: 500;
+    }
+    
+    .car-det p {
+      font-size: 25px;
+      font-weight: 100;
+    }
+  /* TrackWheels */
+  .Track{
+
+    }
+    .div-sec{
+      display: flex;
+      justify-content: space-around;
+      align-self: center;
+    }
+    .Track h1{
+      font-family: 'Poppins',sans-serif;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 400;
+      color: #212529;
+      }
+      .Track a{
+        font-family: 'Poppins',sans-serif;
+      text-align: center;
+      font-size: 3rem;
+      color: #212529;
+      }
+  .TrackWheels{
+    display: block;
+    padding: 20px;
+  }
+  .searchID{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   
+  }
+  .InputField{
+    padding: 7px 10px;
+     background-color: inherit;
+    color: #212529; /* Light color for text */
+    font-size: 20px;
+    font-weight:400;
+    border: 1px solid #212529;    
+  }.InputField input:focus {
+    /* Add your styles for the focused state */
+    outline: none; /* Remove the default focus outline if needed */
+    border-color: none; /* Change border color when focused */
+    /* Add more styles as per your design */
+  }
+  .InputField input::placeholder {
+    color: #212529; /* Set the color of the placeholder text */
+     /* Optionally, set font style */
+    font-weight: 100;  font-family: 'Poppins', sans-serif;
+  }
+  .submit{
+    padding: 7px 10px; color: #212529; /* Light color for text */
+    font-size: 20px;background-color: inherit;
+cursor: pointer; border: 1px solid #212529;
+  }
+  .submit:hover{
+    background-color: #212529;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  /* lineSec */
+  .lineSec{
+  height: auto;
+  display: block;
+  background-color: white;
+  padding: 20px;
+  }
+  .lineSec h1{
+  height: 1px;
+  width: 100%;
+  background-color: #2c2e2f;
+  text-align: center;
+  }
+  /* track */
+  @font-face {
+    font-family: pop;
+    src: url(./Fonts/Poppins-Medium.ttf);
+}
+
+.main{
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: pop;
+    flex-direction: column;
+}
+.head{
+    text-align: center;
+}
+.head_1{
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+}
+.head_1 span{
+    color: #212529;
+}
+.head_2{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 3px;
+}
+ul{
+    display: flex;
+    margin-top: 80px;
+}
+ul li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ul li .icon{
+    font-size: 35px;
+    color: #212529;
+    margin: 0 60px;
+}
+ul li .text{
+    font-size: 14px;
+    font-weight: 600;
+    color: #212529;
+}
+
+/* Progress Div Css  */
+
+ul li .progress{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(68, 68, 68, 0.781);
+    margin: 14px 0;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+}
+.progress::after{
+    content: " ";
+    position: absolute;
+    width: 125px;
+    height: 5px;
+    background-color: rgba(68, 68, 68, 0.781);
+    right: 30px;
+}
+.one::after{
+    width: 0;
+    height: 0;
+}
+ul li .progress .uil{
+    display: none;
+}
+ul li .progress p{
+    font-size: 13px;
+}
+
+/* Active Css  */
+
+ul li .active{
+    background-color: #212529;
+    display: grid;
+    place-items: center;
+}
+li .active::after{
+    background-color: #212529;
+}
+ul li .active p{
+    display: none;
+}
+ul li .active .uil{
+    font-size: 20px;
+    display: flex;
+}
+
+/* Responsive Css  */
+
+@media (max-width: 980px) {
+    ul{
+        flex-direction: column;
+    }
+    ul li{
+        flex-direction: row;
+    }
+    ul li .progress{
+        margin: 0 30px;
+    }
+    .progress::after{
+        width: 5px;
+        height: 55px;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+    .one::after{
+        height: 0;
+    }
+    ul li .icon{
+        margin: 15px 0;
+    }
+}
+
+@media (max-width:600px) {
+    .head .head_1{
+        font-size: 24px;
+    }
+    .head .head_2{
+        font-size: 16px;
+    }
+}

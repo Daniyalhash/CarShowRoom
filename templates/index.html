@@ -1,0 +1,213 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- aos link -->
+    <link rel="stylesheet" href="{% static 'path/to/aos.css' %}" />
+    <link rel="icon" href="{% static 'img/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+    <!--web icon -->
+    <link rel="icon" href="{% static 'CODE/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- font family Audiowide -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+
+    <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+
+    <!-- styleheet -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+</head>
+<body data-aos="fade">  
+  {% include 'navbar.html' %}
+
+  <section class="frontZone">
+      <!-- <div class="logo-container" id="fullLogo">
+          <h1>Wheels</h1></div> -->
+      <div class="div">
+          <div class="div-mid" data-aos="fade">
+              <h2 class="font-effect-outline">Driving Dreams, Fueling Enthusiasm</h2>
+          </div>
+          <video muted="" autoplay="" loop="" class="video-container">
+              <source src="{% static 'img/img/img/Untitled video - Made with Clipchamp (1).mp4' %}" type="video/mp4">
+          </video>
+          <button class="switch-btn">
+              <span class="play">
+                  <i class="fas fa-play"></i>
+              </span>
+              <span class="pause">
+                  <i class="fas fa-pause"></i>
+              </span>
+              <span class="switch"></span>
+          </button>
+      </div>
+  </section>
+  
+  <!-- middle body 1 -->
+  <section class="middleSection" data-aos="fade">
+      <h1>Models</h1>
+      <div class="model-collection" data-aos="fade">
+          <div class="parent">
+              <div class="child bg-one">
+              </div>
+              <h4>Civic 2023</h4>
+              <h5>Comfortable as you want</h5>
+          </div>
+          <div class="parent">
+              <div class="child bg-two">
+              </div>
+              <h4>Lexus 2023</h4>
+              <h5>More luxuries you want</h5>
+          </div>
+          <div class="parent">
+              <div class="child bg-third">
+              </div>
+              <h4>Porsche 2023</h4>
+              <h5>More fast you want</h5>
+          </div>
+      </div>
+  </section>
+  
+  <!-- line -->
+  <section class="lineSec">
+      <h1></h1>
+  </section>
+  
+  <!-- middle body 2 -->
+  <section class="middleSectionSec" data-aos="fade">
+    <h1>Explore your wheels</h1>
+
+    <div class="explore-container-img">
+        {% for car in cars %}
+        <div class="explore-details-small" onclick="showCarDetails('{% static car.carcolor_set.first.color_image_path.url %}','{{ car.name }}')">
+            <img src="{% static car.carcolor_set.first.color_image_path.url %}" alt="">
+           </button>
+            <h1>{{ car.name }}</h1>
+        </div>
+    {% endfor %}
+
+    </div>
+
+    <div class="explore-details-large">
+        <div id="carDetails" class="explore-details-large-img">
+            <!-- Large car details will be dynamically updated -->
+        </div>
+    </div>
+</section>
+
+  <!-- middle body 3 -->
+  <section class="middleSectionDetails" data-aos="fade">
+      <div class="box">
+          <h1 class="heading-h1" id="heading-h1">This is a new experience</h1>
+          <div class="upper-div" id="upperbox" ></div>
+          <div class="lower-div" id="lowerbox">
+              <video muted="" autoplay="" loop="" class="video-container">
+                  <source src="{% static 'img/img/img/Untitled video - Made with Clipchamp (1).mp4' %}" type="video/mp4">
+              </video>
+              <div class="lower-div-content">
+                  <h1>A Nissan for everyone</h1>
+                  <div class="content-button">
+                      <h3>Find your Nissan</h3>
+                      <i class="fa-solid fa-arrow-right"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- line -->
+  <section class="lineSec">
+      <h1></h1>
+  </section>
+  
+  <!-- middle body 4 -->
+  <section class="middleSectionLogo" data-aos="fade">
+      <div class="car-brand">
+          <img src="{% static 'img/needimgofrn/logo1.jpg' %}" alt="Toyota Logo">
+      </div>
+  
+      <div class="car-brand">
+          <img src="{% static 'img/needimgofrn/logo2.jpg' %}" alt="Toyota Logo">
+      </div>
+  
+      <div class="car-brand">
+          <img src="{% static 'img/needimgofrn/logo3.jpg' %}" alt="Toyota Logo">
+      </div>
+  
+      <div class="car-brand">
+          <img src="{% static 'img/needimgofrn/logo4.jpg' %}" alt="Toyota Logo">
+      </div>
+  
+      <div class="car-brand">
+          <img src="{% static 'img/needimgofrn/logo5.jpg' %}" alt="Toyota Logo">
+      </div>
+  
+      <div class="car-brand">
+          <img src="{% static 'img/needimgofrn/logo6.jpg' %}" alt="Toyota Logo">
+      </div>
+  
+      <div class="car-brand">
+          <img src="{% static 'img/needimgofrn/logo7.jpg' %}" alt="Toyota Logo">
+      </div>
+  
+      <div class="car-brand">
+          <img src="{% static 'img/needimgofrn/logo8.jpg' %}" alt="Toyota Logo">
+      </div>
+  
+      <div class="car-brand">
+          <img src="{% static 'img/needimgofrn/logo9.jpg' %}" alt="Toyota Logo">
+      </div>
+  </section>
+  
+  <!-- FOOTER -->
+  {% include 'footer.html' %}
+  </body>
+  
+  <!-- java script -->
+  <!-- java script -->
+  <script src="{% static 'js/index.js' %}"></script>
+  <!-- our aos data -->
+  <script src="{% static 'js/aos.js' %}"></script>
+
+  <script>
+    //animation-------------------------------------------------------------------------------------------------------------
+ AOS.init({  // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 1000,});
+  
+
+  function toggleHeart(button) {
+    // Toggle between regular and solid heart icons
+    const heartIcon = button.querySelector('i');
+    heartIcon.classList.toggle('fa-regular');
+    heartIcon.classList.toggle('fa-solid');
+
+    // Change the color to red
+    const currentColor = window.getComputedStyle(heartIcon).color;
+    const newColor = currentColor === 'rgb(0, 0, 0)' ? 'red' : 'black';
+    heartIcon.style.color = newColor;
+}
+
+  </script>
+  </html>
