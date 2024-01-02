@@ -100,7 +100,8 @@ header::after {
   .slide-content p {
     font-size: 0.5rem;
   }
-  .slide-head-content{}
+  .slide-head-content{
+  }
   .slide-head-content p span{
     letter-spacing: 3px;
   }

@@ -74,7 +74,6 @@ function showCarDetails(carImageLocation, carName) {
       <h1>${carName}</h1>
       <div class="slide-button right">
                         <a href="{% url 'add_to_whislist' car_id=car.id %}" >Interested</a>
-                        <i class="fa-regular fa-heart"></i>
                     </div>      `;
 
   // Add the 'active' class to apply styles

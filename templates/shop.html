@@ -48,7 +48,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    margin-top: 170px;
+    margin-top: 200px;
     padding: 10px 12px;
     border: 1px solid #2c2e2f;
     transition: all 0.3s ease; /* Add transition for smooth movement */
@@ -90,7 +90,7 @@
 }.slide-content p {
     font-size: 0.5rem;
   }  .slide-sub-content {
-    margin-top: 200px;
+    margin-top: 150px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
@@ -99,7 +99,114 @@
     padding: 5px;
     justify-content: space-around;
     backdrop-filter: blur(10px); /* Add a backdrop filter for a blur effect */
+  }.swiper-slide img {
+  width: 50%; /* Set the width to 100% of the parent container */
+  height: auto; /* Maintain the aspect ratio */
+  margin-top: 10%;
+  max-width: 500px; /* Adjust the maximum width as needed */
+  max-height: 200px; /* Adjust the maximum height as needed */
+  object-fit: cover; /* Adjust to 'contain' or 'none' based on your preference */
+}  .slide-head-content{
   }
+  .slide-head-content p span{
+    letter-spacing: 3px;
+  }
+  .slide-content {
+    background-color: ;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin-top: -50px;
+  height:  80vh;
+  
+  }
+  @media only screen and (max-width: 600px) {
+ 
+  .swiper-slide img {
+    width: 80%; /* Adjust the width for better responsiveness */
+    margin-top: 35%;
+    max-width: none; /* Reset max-width */
+    max-height: none; /* Reset max-height */
+  }
+
+  .slide-content {
+    width: 90vw; 
+    height: auto;    margin-top: -40%;
+
+  }
+
+  .slide-content h1 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+  }
+
+  .slide-content p {
+    font-size: 0.8rem;
+  }
+
+  .buttons-container {
+    width: 100%;
+    display: flex;    
+    justify-content: space-between;
+  }
+
+  .slide-sub-content{
+    margin-top: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    background-color: rgba(44, 46, 47, 0.8); /* Adjust the alpha channel as needed */
+    border-radius: 4rem;
+    padding: 5px;
+    justify-content: space-around;
+    backdrop-filter: blur(10px);
+  }
+  .slide-button {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .swiper-slide img {
+    width: 70%;
+  }
+
+  .slide-content {
+    width: 80vw;
+    height: auto;
+  }
+
+  .slide-content h1 {
+    font-size: 1.8rem;
+    margin-top: 20px;
+  }
+
+  .slide-content p {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .swiper-slide img {
+    width: 60%;
+  }
+
+  .slide-content {
+    width: 60vw;
+    height: auto;
+  }
+
+  .slide-content h1 {
+    font-size: 2rem;
+    margin-top: 30px;
+  }
+
+  .slide-content p {
+    font-size: 1.2rem;
+  }
+}
 </style>
 </head>
 <body data-aos="fade">  
@@ -123,7 +230,7 @@
                     <div class="slide-head-content">
                         <h1>{{ car.name }}</h1>
                         <!-- Assuming you have a car pricing object associated with the car -->
-                        <p>from RS <span>{{ car.carpricing.base_price }}$</span></p>
+                        <p>from RS <span>{{ car.carpricing.base_price }}</span></p>
                     </div>
                     <div class="slide-sub-content">
                         <div class="slide-sub-p">

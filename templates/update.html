@@ -1,0 +1,420 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- aos link -->
+    <link rel="stylesheet" href="{% static 'path/to/aos.css' %}" />
+    <link rel="icon" href="{% static 'img/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+    <!--web icon -->
+    <link rel="icon" href="{% static 'CODE/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- font family Audiowide -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+
+    <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+
+    <!-- styleheet -->
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <style>
+        * {
+                 margin: 0%;
+                 padding: 0%;
+                 font-family: 'Poppins', sans-serif;
+                 box-sizing: border-box;
+             }
+             body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Ensure that the content takes at least the full height of the viewport */
+            margin: 0;
+        } .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: white; /* Change the color as needed */
+            text-decoration: none;
+        }
+        header {
+            flex-grow: 1; /* Allow the header to grow and take remaining space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+            z-index: 1;
+        }
+     
+             .background-container {
+                 position: absolute;
+                 top: 0;
+                 left: 0;
+                 width: 100%;
+                 height: 100%;
+                 background: url('../needimgofrn/landing.jpg') center/cover no-repeat;
+                 object-fit: cover;
+                 filter: brightness(10%);
+                 z-index: -1;
+                 opacity: 1;
+             }
+     
+             .form {
+              background-color: white;
+        width: 100%;  /* Set width to 100% to make it responsive */
+        max-width: 800px;  /* Set a maximum width if needed */
+        padding: 20px;
+        margin: 20px auto;  /* Center the form on the page */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);  /* Two equal-width columns */
+        gap: 15px;
+        border-radius: .4rem;
+        border: 1px solid rgba(98, 95, 95, 0.2);
+        box-shadow: 0 0 0.1rem #fff, 0 0 .2rem #fff, 0 0 1.1rem #fff;
+        transition: opacity 0.5s ease-in-out;
+    }
+     
+             header .backup {
+                 display: flex;
+                 justify-content: space-between;
+                 align-items: center;
+                 margin-bottom: 1rem;
+             }
+     
+             header h1 {
+                 text-align: center;
+                 font-family: "Audiowide", sans-serif;
+                 font-size: 2rem;
+                 font-weight: bold;
+                 text-transform: uppercase;
+                 letter-spacing: 1px;
+                 color: #212529;
+                 margin-bottom: 1rem;
+             }
+     
+             .backup h2 {
+                 text-align: left;
+                 font-family: 'Poppins', sans-serif;
+                 font-size: 1rem;
+                 font-weight: 400;
+                 color: #212529;
+                 margin-bottom: 1rem;
+             }
+     
+             .backup i {
+                 
+                 color: #212529;
+                 padding: 4px;
+                 cursor: pointer;
+                 font-size: .9rem;
+                 border-radius: .5rem;
+                 transition: background-color 0.3s, transform 0.3s ease;
+             }
+     
+             .backup i:hover {
+                 transform: scale(1.1);
+             }
+     
+             header form .input-field {
+                 width: 100%;
+                 border: 1px solid #212529;
+                 padding: 10px;
+                 border-radius: .4rem;
+                 text-transform: none;
+                 font-size: 1rem;
+                 background-color: white;
+                 font-weight: 600;
+                 color: #212529;
+                 margin-bottom: 1rem;
+             }
+     
+             header form .submit {
+                 width: 100%;
+                 padding: 10px;
+                 border-radius: .4rem;
+                 cursor: pointer;
+                 border: none;
+                 text-transform: none;
+                 font-size: 1rem;
+                 background-color: #212529;
+                 font-weight: 500;
+                 color: white;
+                 margin-bottom: 1rem;
+             }
+     
+             .submit:hover {
+                 border: 1px solid #212529;
+                 background-color: white;
+                 color: #212529;
+             }
+     
+             .line-bulk {
+                 display: flex;
+                 height: auto;
+                 align-items: center;
+                 margin-bottom: 1rem;
+             }
+     
+             .line-bulk h3 {
+                 width: 50px;
+                 height: 2px;
+                 background-color: #212529;
+                 border-radius: .4rem;
+                 margin: 0 10px;
+             }
+     
+             .line-bulk p {
+                 flex-grow: 1;
+                 text-align: center;
+                 height: 2spx;
+                 font-size: 9px;
+                 font-weight: 400;
+                 text-transform: uppercase;
+                 width: 100%;
+                 border-radius: .4rem;
+                 margin: 0 10px;
+             }
+     
+             .checkMail {
+                 width: 100%;
+                 padding: 10px;
+                 border-radius: .4rem;
+                 cursor: pointer;
+                 text-transform: capitalize;
+                 border: none;
+             
+                 border: 1px solid #212529;
+                 font-size: 1rem;
+                 background-color: white;
+                 font-weight: 400;
+                 color: #212529;
+                 margin-bottom: 1rem;
+             }
+     
+             .checkMail:hover {
+                 background-color: #212529;
+                 color: white;
+             }
+     
+             .form p {
+               
+                 color: #212529;
+                 font-weight: 400;
+                 text-transform: capitalize;
+                 font-size: 10px;
+                 
+             }
+     
+             p span a {
+                 text-decoration: underline;
+                 cursor: pointer;
+                 color: #212529;
+             }   .error-message {
+             text-transform: capitalize;
+             text-align: center;
+             font-size: 10px;
+             color: red; /* Change the text color */
+             opacity: 1; /* Initial opacity set to 1 */
+             transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out; /* Add transition for smoother visibility change */
+            
+         }  /* Media Queries for Responsive Design */
+     
+     @media only screen and (min-width: 600px) {
+         /* Adjust styles for screens wider than 600px */
+         .form {
+             max-width: 400px;
+         }
+     }
+     
+     @media only screen and (min-width: 768px) {
+         /* Adjust styles for screens wider than 768px (tablets) */
+         .form {
+             max-width: 500px;
+         }
+     }
+     
+     @media only screen and (min-width: 992px) {
+         /* Adjust styles for screens wider than 992px (small desktops) */
+         .form {
+             max-width: 600px;
+         }
+     }
+     
+     @media only screen and (min-width: 1200px) {
+         /* Adjust styles for screens wider than 1200px (large desktops) */
+         .form {
+             max-width: 800px;
+         }
+     }.action-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px; /* Add margin for spacing */
+} .action-boxes {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .action-box {
+        text-align: center;
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s ease;
+    }
+
+    .action-box:hover {
+        background-color: #e0e0e0;
+    }
+
+    .action-box button {
+        margin-top: 10px;
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s, transform 0.3s ease;
+    }
+
+    .action-box button:hover {
+        background-color: #0056b3;
+    }
+    body h1{
+      text-align: center;
+    }
+  </style>
+</head>
+<body data-aos="fade">  
+  <header>
+    <div class="background-container"></div>
+    <h1>Wheels</h1>
+
+   
+
+ 
+ 
+  <!-- update -->
+  <form method="post" action="{% url 'update_car' %}"  class="form" id="update-form">
+    {% csrf_token %}
+    <div class="backup">
+        <h2>Update Car</h2>
+        <a href="{% url 'AdminPage' %}" class="back-arrow" >
+            <i class="fas fa-arrow-left-long"></i> Back to Actions
+        </a>
+    </div>
+    <h2>Edit Car Details</h2>
+    
+    <div> 
+        <label for="update_car_id">Car ID:</label>
+        <input type="text" class="input-field" name="update_car_id" id="update_car_id" value="{{ car.id }}" readonly>
+    </div>
+
+    <!-- Editable fields -->
+    <div>
+        <label for="update_name">Car Name:</label>
+        <input type="text" class="input-field" name="update_name" id="update_name" value="{{ car.name }}" required>
+    </div>
+
+    <!-- Include other editable fields for updating -->
+
+    <input type="submit" class="submit" value="Save Changes">
+    {% if update_error_message %}
+        <div class="error-message">
+            {{ update_error_message }}
+        </div>
+    {% endif %}
+</form>
+</header>
+
+
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+  //animation-------------------------------------------------------------------------------------------------------------
+AOS.init({  // offset (in px) from the original trigger point
+delay: 0, // values from 0 to 3000, with step 50ms
+duration: 1000,});
+// function showForm(formId) {
+//     $(".action-box").hide();
+//     $("#" + formId).show();
+// }
+// function showDeleteForm() {
+//     showForm('delete-form');
+//   }
+//   function showUpdateForm() {
+//   $(".action-box").hide();
+//   $("#update-form").show();
+// }
+
+// function goBack() {
+//   $(".action-box").show();
+//   $("#create-form").hide();
+//   $("#update-form").hide(); // Hide the update form when going back
+// }
+
+// // Add this line to show the update form with ID "update-form" when the page loads
+// showUpdateForm();
+//   function goBack() {
+//     $(".action-box").show();
+//     $("#create-form, #delete-form").hide();
+//   }
+
+//   // Add this line to show the "Create Car" form when the page loads
+//   showForm('create-form');
+ // Your existing script remains unchanged
+
+    // Function to show the specified form and hide other action boxes
+    function showForm(formId) {
+        $(".action-box").hide();
+        $(".form").hide(); // Hide all forms
+        $("#" + formId).show();
+    }
+
+    // Event handler for the 'Go Back' functionality
+    function goBack() {
+        $(".action-box").show();
+        $(".form").hide(); // Hide all forms
+        showUpdateForm(); // Show the update form
+    }
+
+    // Add this line to show the "Create Car" form when the page loads
+    showForm('create-form');
+</script>
+</body>
+  
+
+  <!-- java script -->
+
+  <!-- our aos data -->
+
+  </html>

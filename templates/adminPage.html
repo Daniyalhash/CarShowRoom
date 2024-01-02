@@ -1,0 +1,665 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- aos link -->
+    <link rel="stylesheet" href="{% static 'path/to/aos.css' %}" />
+    <link rel="icon" href="{% static 'img/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+    <!--web icon -->
+    <link rel="icon" href="{% static 'CODE/needimgofrn/wheels-icon-png-15.png' %}" type="image/x-icon">
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- font family Audiowide -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+
+    <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+
+    <!-- styleheet -->
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <style> .go-back-arrow {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .go-back-arrow a {
+      text-decoration: none;
+      color: #fff;
+    }
+        * {
+                 margin: 0%;
+                 padding: 0%;
+                 font-family: 'Poppins', sans-serif;
+                 box-sizing: border-box;
+             }.error-message {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 10px;
+    color: red; /* Change the text color */
+    opacity: 1; /* Initial opacity set to 1 */
+    transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out; /* Add transition for smoother visibility change */
+   
+}
+             body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Ensure that the content takes at least the full height of the viewport */
+            margin: 0;
+        } .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: white; /* Change the color as needed */
+            text-decoration: none;
+        }
+        header {
+            flex-grow: 1; /* Allow the header to grow and take remaining space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+            z-index: 1;
+        }
+        .message-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            display: none;
+            z-index: 1000;
+        }
+             .background-container {
+                 position: absolute;
+                 top: 0;
+                 left: 0;
+                 width: 100%;
+                 height: 100%;
+                 background: url('../needimgofrn/landing.jpg') center/cover no-repeat;
+                 object-fit: cover;
+                 filter: brightness(10%);
+                 z-index: -1;
+                 opacity: 1;
+             }
+     .view_class{
+
+     }
+             .form {
+              background-color: white;
+        width: 100%;  /* Set width to 100% to make it responsive */
+        max-width: 800px;  /* Set a maximum width if needed */
+        padding: 20px;
+        margin: 20px auto;  /* Center the form on the page */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);  /* Two equal-width columns */
+        gap: 15px;
+        border-radius: .4rem;
+        border: 1px solid rgba(98, 95, 95, 0.2);
+        box-shadow: 0 0 0.1rem #fff, 0 0 .2rem #fff, 0 0 1.1rem #fff;
+        transition: opacity 0.5s ease-in-out;
+    }
+     
+             header .backup {
+                 display: flex;
+                 justify-content: space-between;
+                 align-items: center;
+                 margin-bottom: 1rem;
+             }
+     
+             header h1 {
+                 text-align: center;
+                 font-family: "Audiowide", sans-serif;
+                 font-size: 2rem;
+                 font-weight: bold;
+                 text-transform: uppercase;
+                 letter-spacing: 1px;
+                 color: #212529;
+                 margin-bottom: 1rem;
+             }
+     
+             .backup h2 {
+                 text-align: left;
+                 font-family: 'Poppins', sans-serif;
+                 font-size: 1rem;
+                 font-weight: 400;
+                 color: #212529;
+                 margin-bottom: 1rem;
+             }
+     
+             .backup i {
+                 
+                 color: #212529;
+                 padding: 4px;
+                 cursor: pointer;
+                 font-size: .9rem;
+                 border-radius: .5rem;
+                 transition: background-color 0.3s, transform 0.3s ease;
+             }
+     
+             .backup i:hover {
+                 transform: scale(1.1);
+             }
+     
+             header form .input-field {
+                 width: 100%;
+                 border: 1px solid #212529;
+                 padding: 10px;
+                 border-radius: .4rem;
+                 text-transform: none;
+                 font-size: 1rem;
+                 background-color: white;
+                 font-weight: 600;
+                 color: #212529;
+                 margin-bottom: 1rem;
+             }
+     
+             header form .submit {
+                 width: 100%;
+                 padding: 10px;
+                 border-radius: .4rem;
+                 cursor: pointer;
+                 border: none;
+                 text-transform: none;
+                 font-size: 1rem;
+                 background-color: #212529;
+                 font-weight: 500;
+                 color: white;
+                 margin-bottom: 1rem;
+             }
+     
+             .submit:hover {
+                 border: 1px solid #212529;
+                 background-color: white;
+                 color: #212529;
+             }
+     
+             .line-bulk {
+                 display: flex;
+                 height: auto;
+                 align-items: center;
+                 margin-bottom: 1rem;
+             }
+     
+             .line-bulk h3 {
+                 width: 50px;
+                 height: 2px;
+                 background-color: #212529;
+                 border-radius: .4rem;
+                 margin: 0 10px;
+             }
+     
+             .line-bulk p {
+                 flex-grow: 1;
+                 text-align: center;
+                 height: 2spx;
+                 font-size: 9px;
+                 font-weight: 400;
+                 text-transform: uppercase;
+                 width: 100%;
+                 border-radius: .4rem;
+                 margin: 0 10px;
+             }
+     
+             .checkMail {
+                 width: 100%;
+                 padding: 10px;
+                 border-radius: .4rem;
+                 cursor: pointer;
+                 text-transform: capitalize;
+                 border: none;
+             
+                 border: 1px solid #212529;
+                 font-size: 1rem;
+                 background-color: white;
+                 font-weight: 400;
+                 color: #212529;
+                 margin-bottom: 1rem;
+             }
+     
+             .checkMail:hover {
+                 background-color: #212529;
+                 color: white;
+             }
+     
+             .form p {
+               
+                 color: #212529;
+                 font-weight: 400;
+                 text-transform: capitalize;
+                 font-size: 10px;
+                 
+             }
+     
+             p span a {
+                 text-decoration: underline;
+                 cursor: pointer;
+                 color: #212529;
+             }   .error-message {
+             text-transform: capitalize;
+             text-align: center;
+             font-size: 10px;
+             color: red; /* Change the text color */
+             opacity: 1; /* Initial opacity set to 1 */
+             transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out; /* Add transition for smoother visibility change */
+            
+         }  /* Media Queries for Responsive Design */
+     
+     @media only screen and (min-width: 600px) {
+         /* Adjust styles for screens wider than 600px */
+         .form {
+             max-width: 400px;
+         }
+     }
+     
+     @media only screen and (min-width: 768px) {
+         /* Adjust styles for screens wider than 768px (tablets) */
+         .form {
+             max-width: 500px;
+         }
+     }
+     
+     @media only screen and (min-width: 992px) {
+         /* Adjust styles for screens wider than 992px (small desktops) */
+         .form {
+             max-width: 600px;
+         }
+     }
+     
+     @media only screen and (min-width: 1200px) {
+         /* Adjust styles for screens wider than 1200px (large desktops) */
+         .form {
+             max-width: 800px;
+         }
+     }.action-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px; /* Add margin for spacing */
+} .action-boxes {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .action-box {
+        text-align: center;
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s ease;
+    }
+
+    .action-box:hover {
+        background-color: #e0e0e0;
+    }
+
+    .action-box button {
+        margin-top: 10px;
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s, transform 0.3s ease;
+    }
+
+    .action-box button:hover {
+        background-color: #0056b3;
+    }
+    body h1{
+      text-align: center;
+    }.car-boxes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .car-box {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 250px; /* Adjust the width as needed */
+        text-align: center;
+    }
+
+    .car-box h3 {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+  </style>
+</head>
+<body data-aos="fade">  
+  <header>{% if error_message %}
+    <div class="error-message">
+        {{ error_message }}
+    </div>
+{% endif %}
+    <div class="background-container"></div>
+    <a href="{% url 'Login' %}">
+      <i class="fas fa-arrow-left-long"></i> Go to Login
+    </a>
+    <h1>Wheels</h1>
+    <div class="message-container" id="messageContainer"></div>
+
+    <div class="action-boxes">
+      <div class="action-box" id="create-box">
+          <h2>Create</h2>
+          <button onclick="showForm('create-form')">Create Car</button>
+        </div>
+
+      <div class="action-box" id="read-box">
+          <h2>Read</h2>
+          <button onclick="showForm('view-form')">View Car</button>
+
+          <!-- Add read functionality here -->
+      </div>
+
+      <div class="action-box" id="update-box">
+          <h2>Update</h2>
+          <button onclick="showForm('update-form')">Update Car</button>
+
+          <!-- Add update functionality here -->
+      </div>
+
+      <div class="action-box" id="delete-box" onclick="showDeleteForm()">
+        <h2>Delete</h2>
+        <button onclick="showForm('delete-form')">Delete Car</button>
+          <!-- Add delete functionality here -->
+      </div>
+  </div>
+<!-- add car -->
+  <form method="post" action="{% url 'add_car' %}" style="display: none;" class="form" id="create-form">
+    {% csrf_token %}
+        <div class="backup">
+            <h2>Welcome Sir</h2>
+            
+    <a href="#" class="back-arrow" onclick="goBack()">
+      <i class="fas fa-arrow-left-long"></i> Back to Actions
+  </a>
+        </div>
+        <h2>Car Details</h2>
+        <div>
+          <label for="id_name">Car Name:</label>
+          <input type="text" class="input-field" name="name" id="name" required>
+      </div>
+      <div>
+          <label for="id_brand">Brand:</label>
+          <input type="text" class="input-field" name="brand" id="brand"  required>
+      </div>
+      <div>
+          <label for="id_year">Year:</label>
+          <input type="number" class="input-field" name="year"  id="year" required>
+      </div>
+      <div>
+          <label for="id_type">Car Type:</label>
+          <input type="text" class="input-field" name="type"  id="type" required>
+      </div>
+      <h2>Car Pricing</h2>
+      <div>
+          <label for="id_base_price">Base Price:</label>
+          <input type="text" class="input-field" name="base_price" id="base_price" required>
+      </div>
+      <div>
+          <label for="id_premium_package_price">Premium Package Price:</label>
+          <input type="text" class="input-field"  name="premium_package_price" id="premium_package_price" required>
+      </div>
+      <div>
+          <label for="id_technology_package_price">Technology Package Price:</label>
+          <input type="text" class="input-field"  name="technology_package_price" id="technology_package_price" required>
+      </div>
+      <div>
+          <label for="id_special_offers">Special Offers:</label>
+          <input type="text" class="input-field"  name="special_offers" id="special_offers"required>
+      </div>
+      <h2>Car Features</h2>
+      <div>
+          <label for="id_entry">Entry:</label>
+          <input type="text" class="input-field" name="entry" id="entry" required>
+      </div>
+      <div>
+          <label for="id_seats">Seats:</label>
+          <input type="text" class="input-field" name="seats" id="seats" required>
+      </div>
+      <div>
+          <label for="id_sunroof">Sunroof:</label>
+          <input type="text" class="input-field" name="sunroof" id="sunroof" required>
+      </div>
+      <div>
+          <label for="id_system">System:</label>
+          <input type="text" class="input-field"name="system" id="system" required>
+      </div>
+      <h2>Car Specification</h2>
+      <div>
+          <label for="id_fuel_type">Fuel Type:</label>
+          <input type="text" class="input-field" name="fuel_type" id="fuel_type" required>
+      </div>
+      <div>
+          <label for="id_engine_horsepower">Engine Horsepower:</label>
+          <input type="number" class="input-field" name="engine_horsepower" id="engine_horsepower" required>
+      </div>
+      <div>
+          <label for="id_engine_torque">Engine Torque:</label>
+          <input type="number" class="input-field" name="engine_torque" id="engine_torque"required>
+      </div>
+      <div>
+          <label for="id_transmission">Transmission:</label>
+          <input type="text" class="input-field" name="transmission" id="transmission"required>
+      </div>
+      <div>
+          <label for="id_fuel_efficiency">Fuel Efficiency:</label>
+          <input type="text" class="input-field" name="fuel_efficiency" id="fuel_efficiency" required>
+      </div>
+      <div>
+          <label for="id_performance_0_60">Performance 0-60:</label>
+          <input type="text" class="input-field" name="performance_0_60" id="performance_0_60" required>
+      </div>
+      <div>
+          <label for="id_top_speed">Top Speed:</label>
+          <input type="number" class="input-field" name="top_speed" id="top_speed" required>
+      </div>
+  
+      <h2>Car Color</h2>
+      <div>
+          <label for="id_color">Color:</label>
+          <input type="text" class="input-field" name="color" id="color" required>
+      </div>
+      <div>
+          <label for="id_color_image_path">Color Image Path:</label>
+          <input type="text" class="input-field" name="color_image_path" id="color_image_path" required>
+      </div>
+  
+      <h2>Garage</h2>
+      <div>
+          <label for="id_quantity">Quantity:</label>
+          <input type="text" class="input-field" name="quantity" id="quantity" required>
+      </div>
+  
+      <h2>Car Video</h2>
+      <div>
+          <label for="id_video_file">Video File:</label>
+          <input type="text" class="input-field" name="video_file" id="video_file"required>
+      </div>
+      <div>
+          <label for="id_description">Description:</label>
+          <input type="text" class="input-field" name="description" id="description" required>
+      </div>
+  
+
+
+
+        <input type="submit" class="submit" value="Continue" >
+    
+     
+        {% if error_message %}
+        <div class="error-message">
+            {{ error_message }}
+        </div>
+        {% endif %}
+    </form>
+    <!-- delete -->
+    <form method="post" action="{% url 'delete_car_db' %}" style="display: none;" class="form" id="delete-form" onsubmit="return confirm('Are you sure you want to delete this car and associated data?')">
+      {% csrf_token %}
+      <div class="backup">
+          <h2>Delete Car</h2>
+          <a href="#" class="back-arrow" onclick="goBack()">
+              <i class="fas fa-arrow-left-long"></i> Back to Actions
+          </a>
+      </div>
+      <h2>Enter Car ID to Delete</h2>
+      <div>
+          <label for="car_id">Car ID:</label>
+          <input type="number" class="input-field" name="car_id" id="car_id" required>
+      </div>
+      <input type="submit" class="submit" value="Delete Car">
+      {% if error_message %}
+          <div class="error-message">
+              {{ error_message }}
+          </div>
+      {% endif %}
+  </form>
+  <!-- update -->
+  <form method="post" action="{% url 'search_update_car' %}" style="display: none;" class="form" id="update-form">
+    {% csrf_token %}
+    <div class="backup">
+        <h2>Update Car</h2>
+        <a href="#" class="back-arrow" onclick="goBack()">
+            <i class="fas fa-arrow-left-long"></i> Back to Actions
+        </a>
+    </div>
+    <h2>Search Car Details</h2>
+    <div> 
+        <label for="update_car_id">Car ID:</label>
+        <input type="text" class="input-field" name="car_id" id="car_id" required>
+      </div>
+    <input type="submit" class="submit" value="Search">
+
+    {% if error_message %}
+    <div class="error-message">
+        {{ update_error_message }}
+    </div>
+    {% endif %}
+</form>
+  <!-- view -->
+  <form method="post"   style="display: none;" class="form" id="view-form">
+    {% csrf_token %}
+    <div class="backup">
+        <a href="#" class="back-arrow" onclick="goBack()">
+            <i class="fas fa-arrow-left-long"></i> Back to Actions
+        </a>
+    </div>
+    <h2>All Cars of DB will show here</h2>
+
+    <div class="car-boxes">
+        {% if cars %}
+            {% for car in cars %}
+                <div class="car-box">
+                    <h3>{{ car.name }} - {{ car.brand }} - {{ car.year }}</h3>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No cars found.</p>
+        {% endif %}
+    </div>
+  
+
+    {% if error_message %}
+    <div class="error-message">
+        {{ update_error_message }}
+    </div>
+    {% endif %}
+</form>
+</header>
+
+
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+  //animation-------------------------------------------------------------------------------------------------------------
+AOS.init({  // offset (in px) from the original trigger point
+delay: 0, // values from 0 to 3000, with step 50ms
+duration: 1000,});
+  // Function to hide the error message after 3 seconds
+  document.addEventListener('DOMContentLoaded', function () {
+        function hideErrorMessage() {
+            var errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(function (errorMessage) {
+                errorMessage.style.opacity = '0'; // Set opacity to 0 for smooth hiding
+            });
+
+            // After the transition is complete, set display to none
+            setTimeout(function () {
+                errorMessages.forEach(function (errorMessage) {
+                    errorMessage.style.display = 'none';
+                });
+            }, 500); // Adjust the timeout to match the transition duration
+        }
+
+        // Call the function after 3000 milliseconds (3 seconds)
+        setTimeout(hideErrorMessage, 3000);
+    });
+    // Function to show the specified form and hide other action boxes
+    function showForm(formId) {
+        $(".action-box").hide();
+        $(".form").hide(); // Hide all forms
+        $("#" + formId).show();
+    }
+
+    // Event handler for the 'Go Back' functionality
+    function goBack() {
+        $(".action-box").show();
+        $(".form").hide(); // Hide all forms
+        showUpdateForm(); // Show the update form
+    }
+
+    // Add this line to show the "Create Car" form when the page loads
+    showForm('create-form');
+</script>
+</body>
+  
+
+  <!-- java script -->
+
+  <!-- our aos data -->
+
+  </html>

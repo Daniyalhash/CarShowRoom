@@ -98,7 +98,42 @@ def Signup(request):
 #     print('email gone')
 #     send_mail(subject, message, from_email, recipient_list)
 
+def AdminPanel(request):
+    return render(request, 'AdminPanel.html')
+from django.contrib.auth.hashers import make_password
+def AdminPage(request):
+    cars = Car.objects.all()
+    return render(request, 'adminPage.html', {'cars': cars})
+def AdminLogin(request):
+    error_message = None
 
+    if request.method == 'POST':
+        # Assign a username and password
+        assigned_username = 'admin'
+        assigned_password = 'admin'
+        
+        # Get the username and password from the form
+        input_username = request.POST.get('username')
+        input_password = request.POST.get('password')
+
+        # Check if the input matches the assigned username and password
+        if input_username == assigned_username and input_password == assigned_password:
+            # Create a fake user-like dictionary for custom authentication
+            user_dict = {
+                'username': assigned_username,
+                'password': assigned_password,
+            }
+
+            # Store the user-like dictionary in the session for authentication
+            request.session['user'] = user_dict
+
+            username = user_dict['username']
+
+            return render(request, 'adminPage.html', {'username': username})
+        else:
+            error_message = "Username or Password is incorrect!!!"
+
+    return render(request, 'AdminPanel.html', {'error_message': error_message})
 def Login(request):
     error_message = None
 
@@ -349,25 +384,7 @@ def Celebration(request, car_id, color_id, user_id):
         raise Http404("Color not found")
     except CarColor.DoesNotExist:
         raise Http404("CarColor not found")
-# def search_car(request):
 
-#     if request.method == 'POST':
-#         car_name = request.POST.get('car_name')
-#         car = get_object_or_404(Car, name=car_name)
-#         car_colors = CarColor.objects.filter(car=car)
-
-#         # Return JSON response
-#         car_details = {
-#             'name': car.name,
-#             'brand': car.brand,
-#             'year': car.year,
-#             'type': car.type,
-#             'colors': [{'color_name': color.color.color_name, 'image_path': color.color_image_path.url} for color in car_colors]
-#         }
-
-#         return JsonResponse({'success': True, 'car_details': car_details})
-
-#     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 def search(request):
     return HttpResponse('this is searh')
 def delete_car(request, car_dashboard_id):
@@ -379,3 +396,233 @@ def delete_car(request, car_dashboard_id):
     return redirect('Dashboard')
     
 
+def add_car(request):
+    error_message = None
+
+    if request.method == 'POST':
+        # Car details
+        name = request.POST.get('name')
+        brand = request.POST.get('brand')
+        year = request.POST.get('year')
+        car_type = request.POST.get('type')
+
+        # Car pricing
+        base_price = request.POST.get('base_price')
+        premium_package_price = request.POST.get('premium_package_price')
+        technology_package_price = request.POST.get('technology_package_price')
+        special_offers = request.POST.get('special_offers')
+
+        # Car features
+        entry = request.POST.get('entry')
+        seats = request.POST.get('seats')
+        sunroof = request.POST.get('sunroof')
+        system = request.POST.get('system')
+
+        # Car specification
+        fuel_type = request.POST.get('fuel_type')
+        engine_horsepower = request.POST.get('engine_horsepower')
+        engine_torque = request.POST.get('engine_torque')
+        transmission = request.POST.get('transmission')
+        fuel_efficiency = request.POST.get('fuel_efficiency')
+        performance_0_60 = request.POST.get('performance_0_60')
+        top_speed = request.POST.get('top_speed')
+
+        # Car color
+        color = request.POST.get('color')
+        # car image
+        color_image_path = request.FILES.get('color_image_path')
+
+        # Garage
+        quantity = request.POST.get('quantity')
+
+        # Car video
+        video_file = request.FILES.get('video_file')
+        description = request.POST.get('description')
+
+        try:
+            # Create Car instance and save to database
+            car_instance = Car.objects.create(name=name, brand=brand, year=year, type=car_type)
+
+            # Create CarPricing instance and save to database
+            car_pricing_instance = CarPricing.objects.create(
+                car=car_instance,
+                base_price=base_price,
+                premium_package_price=premium_package_price,
+                technology_package_price=technology_package_price,
+                special_offers=special_offers
+            )
+
+            # Create CarFeatures instance and save to database
+            car_features_instance = CarFeature.objects.create(
+                car=car_instance,
+                entry=entry,
+                seats=seats,
+                sunroof=sunroof,
+                system=system
+            )
+
+            # Create CarSpecification instance and save to database
+            car_specification_instance = CarSpecification.objects.create(
+                car=car_instance,
+                fuel_type=fuel_type,
+                engine_horsepower=engine_horsepower,
+                engine_torque=engine_torque,
+                transmission=transmission,
+                fuel_efficiency=fuel_efficiency,
+                performance_0_60=performance_0_60,
+                top_speed=top_speed
+            )
+            car_color_name_instance = Color.object.create(color_name=color)
+            # Create CarColor instance and save to database
+            car_color_instance = CarColor.objects.create(
+                color_image_path=color_image_path,
+                car=car_instance,
+                color=car_color_name_instance,
+               
+            )
+
+            # Create Garage instance and save to database
+            garage_instance = Garage.objects.create(
+                car=car_instance,
+                quantity=quantity
+            )
+
+            # Create CarVideo instance and save to database
+            car_video_instance = CarVideo.objects.create(
+                car=car_instance,
+                video_file=video_file,
+                description=description
+            )
+
+            # Commit the changes
+            car_instance.save()
+            car_pricing_instance.save()
+            car_features_instance.save()
+            car_specification_instance.save()
+            car_color_name_instance.save()
+            # car_color_instance.save()
+            # garage_instance.save()
+            # car_video_instance.save()
+            return redirect("AdminPage")
+            error_message = "saved"
+        except Exception as e:
+            # Handle exceptions as needed
+            error_message = 'An error occurred while saving the car details.'
+
+    return render(request, 'adminPage.html', {'error_message': error_message})
+
+def delete_car_db(request):
+    if request.method == 'POST':
+        try:
+            # Retrieve the car instance
+            car_id = request.POST.get('car_id')
+            car = get_object_or_404(Car, id=car_id)
+            car.delete()
+
+            messages.success(request, 'Car deleted successfully.')
+        except Car.DoesNotExist:
+            messages.error(request, 'Car not found.')
+
+
+    return render(request, 'adminPage.html')
+def search_update_car(request):
+    if request.method == 'POST':
+        car_id = request.POST.get('car_id')
+        try:
+            car = get_object_or_404(Car, id=car_id)
+
+            return render(request, 'update.html', {'car': car})
+        except Exception as e:
+            print(f"Exception: {e}")
+            error_message = f"Error: {e}"
+            messages.error(request, error_message)
+            return render(request, 'adminPage.html', {'error_message': error_message})
+
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+def view_cars(request):
+    cars = Car.objects.all()
+    return render(request, 'adminPage.html', {'cars': cars})    
+def update_car(request):
+    if request.method == 'POST':
+        car_id = request.POST.get('update_car_id')
+        car_name = request.POST.get('update_name')
+
+        try:
+            car = get_object_or_404(Car, id=car_id)
+            car.name = car_name
+            # Update other fields if needed
+            car.save()
+
+            # Redirect to a success page or another view
+            return render(request, 'adminPage.html')
+
+        except Exception as e:
+            # Handle exceptions if the car is not found or other errors
+            update_error_message = f"Error: {e}"
+            return render(request, 'update.html',{'update_error_message': update_error_message})
+
+    # If it's not a POST request, you can handle this part according to your needs
+    else:
+        return render(request, 'update.html')
+    # if request.method == 'POST':
+    #     try:
+    #         # Retrieve the car instance
+    #         car_id = request.POST.get('update_car_id')
+    #         car = get_object_or_404(Car, id=car_id)
+
+    #         # Display current values for editing
+    #         current_name = car.name
+    #         current_brand = car.brand
+    #         # Add other fields as needed
+
+    #         # Get new values from the form
+    #         new_name = request.POST.get('new_name')
+    #         new_brand = request.POST.get('new_brand')
+    #         # Get other new values as needed
+
+    #         # Update car details
+    #         car.name = new_name
+    #         car.brand = new_brand
+    #         # Update other fields as needed
+
+    #         car.save()
+
+    #         messages.success(request, 'Car updated successfully.')
+    #     except Car.DoesNotExist:
+    #         messages.error(request, 'Car not found.')
+
+    # return render(request, 'adminPage.html')
+
+    # # Update car pricing
+            # car.base_price = request.POST.get('base_price')
+            # car.premium_package_price = request.POST.get('premium_package_price')
+            # car.technology_package_price = request.POST.get('technology_package_price')
+            # car.special_offers = request.POST.get('special_offers')
+
+            # # Update car features
+            # car.entry = request.POST.get('entry')
+            # car.seats = request.POST.get('seats')
+            # car.sunroof = request.POST.get('sunroof')
+            # car.system = request.POST.get('system')
+
+            # # Update car specifications
+            # car.fuel_type = request.POST.get('fuel_type')
+            # car.engine_horsepower = request.POST.get('engine_horsepower')
+            # car.engine_torque = request.POST.get('engine_torque')
+            # car.transmission = request.POST.get('transmission')
+            # car.fuel_efficiency = request.POST.get('fuel_efficiency')
+            # car.performance_0_60 = request.POST.get('performance_0_60')
+            # car.top_speed = request.POST.get('top_speed')
+
+            # # Update car color
+            # car.color = request.POST.get('color')
+            # car.color_image_path = request.POST.get('color_image_path')
+
+            # # Update garage
+            # car.quantity = request.POST.get('quantity')
+
+            # # Update car video and description
+            # car.video_file = request.POST.get('video_file')
+            # car.description = request.POST.get('description')
+
+            # Save the updated car instance

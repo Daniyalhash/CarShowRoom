@@ -54,83 +54,7 @@
   }
   
 
-  /* header--------------------------------------------------------------------------------------------------------------- */
-  header {
-  height: 15vh;
-  position: relative;
-  display: flex;
-  background-color: black;
-  
-  }
-  
-  header nav {
-  position: absolute;
-  top: 20px; /* Adjust the top position as needed */
-  right: 20px; /* Adjust the right position as needed */
-  /* padding:10px 20px; */
-  width: auto;
-  height: 50px;
-  background:transparent;
-  border-radius: 8px;
-  font-size: 0;
-  }
-  
-  nav ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  }
-  
-  nav ul li {
-  margin-right: 20px;
-  }
-  nav a{
-  font-size: 15px;
-  text-transform: uppercase;
-  color: #fff;
-  text-decoration: none;
-  line-height: 50px;
-  position: relative;
-  font-weight: 100;
-  z-index: 1;
-  letter-spacing: 1px;
-  display: inline-block;
-  text-align: center;
-  }
-  
-
-  
-  
-  
-    header .h1 {
-        font-family: "Audiowide", sans-serif;
-            font-size: 2rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            
-            position: absolute;
-            top: 23px; /* Adjust the top position as needed */
-            left: 30px; /* Adjust the right position as needed */
-        }
-  
-  
-
  
-  /* Add this to your existing styles */
-  /* The subnavigation menu */
-  /* Add this to your existing styles */
-  
-  /* header after */
- 
-  .gradient-text {
-  background: linear-gradient(6deg, rgba(255, 255, 255, 1) 0%, rgba(33, 37, 41, 0.8232758620689655) 100%);
-  -webkit-background-clip: text; /* For WebKit/Blink browsers */
-  background-clip: text;
-  color: transparent; /* Set text color to transparent */
-  }
 
   /* ----------------------------------------------------------------------------------------------------- */
   /* middleSection */
@@ -307,6 +231,58 @@ align-items: flex-start;
   transition: all 0.3s ease;
   color: #ff6666;
   background-color: white;
+}/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .model-collection {
+        flex-direction: column;
+    }
+
+    .parent {
+        width: 100%;
+    }
+}
+
+/* Line Section */
+.lineSec {
+    height: auto;
+    display: block;
+    background-color: white;
+    padding: 20px;
+}
+
+.lineSec h1 {
+    height: 1px;
+    width: 100%;
+    background-color: #2c2e2f;
+    text-align: center;
+}
+
+/* Primary Section */
+.primary {
+    padding: 30px;
+}
+
+.primary i {
+    color: red;
+    padding: 10px;
+}
+
+.primary a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: red;
+    padding: 10px;
+    font-weight: 400;
+    background-color: #ff6666;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    font-size: smaller;
+}
+
+.primary a:hover {
+    transition: all 0.3s ease;
+    color: #ff6666;
+    background-color: white;
 }
 </style>
 </head>

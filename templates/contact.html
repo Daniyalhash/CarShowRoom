@@ -48,7 +48,241 @@
     left: 500px;
     display: block;
     width: 300px;
+}/* Base styles */
+* {
+  margin: 0%;
+  padding: 0%;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
+
+/* Responsive styles */
+
+/* Small screens (phones) */
+@media only screen and (max-width: 600px) {
+  .content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom-right-radius: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .sideLogo{
+    position: absolute;
+    top: 200px;
+    left: 10px;
+    gap: 10px;
+    display: block;
+    width: 300px;
+}
+  .sideLogo h1 {
+    font-size: 24px;
+  }
+
+  .sideLogo p {
+    font-size: 14px;
+  }
+
+  .location h2 {
+    font-size: 24px;
+    margin: 20px 20px;
+  }
+
+  .socialLocation {
+    margin: 20px 20px;
+  }
+
+  .div-1 {
+    width: 100%;
+  }
+
+  .div-1 i {
+    font-size: 24px;
+  }
+
+  .div-1 h1 {
+    font-size: 18px;
+  }
+
+  .div-1 p {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .line h1 {
+    width: 100%;
+  }
+
+  .signIn-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .signIn-container h2 {
+    font-size: 24px;
+    margin: 0 20px;
+  }
+
+  .messageUs {
+    width: 100%;
+  }
+
+  .messageUs p {
+    margin: 0 20px;
+  }
+
+  .messageUs form {
+    margin: 20px 10px;
+  }
+
+  .signIn-container form label {
+    font-size: 14px;
+  }
+
+  .signIn-container form input,
+  .signIn-container form textarea {
+    width: 100%;
+  }
+
+  .submit {
+    width: 100%;
+  }
+}
+
+/* Medium screens (tablets) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .content::before {
+    border-bottom-right-radius: 70px;
+  }
+
+  .sideLogo h1 {
+    font-size: 30px;
+  }
+
+  .sideLogo p {
+    margin-top: -10px;
+  }
+
+  .location h2 {
+    font-size: 40px;
+    margin: 20px 70px;
+  }
+
+  .socialLocation {
+    margin: 40px 70px;
+  }
+
+  .div-1 {
+    width: 30%;
+  }
+
+  .div-1 i {
+    font-size: 20px;
+  }
+
+  .div-1 h1 {
+    font-size: 15px;
+  }
+
+  .div-1 p {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .line h1 {
+    padding: 20px;
+  }
+
+  .signIn-container h2 {
+    font-size: 40px;
+    margin: -15px 30px;
+  }
+
+  .messageUs p {
+    margin: -15px 30px;
+  }
+
+  .signIn-container form {
+    margin: 35px 10px;
+  }
+
+  .signIn-container form input {
+    margin-bottom: 10px;
+  }
+
+  .inner-text i {
+    margin-top: 10px;
+  }
+}
+
+/* Large screens (desktops) */
+@media only screen and (min-width: 1025px) {
+  .content::before {
+    border-bottom-right-radius: 70px;
+  }
+
+  .sideLogo h1 {
+    font-size: 30px;
+  }
+
+  .sideLogo p {
+    margin-top: -10px;
+  }
+
+  .location h2 {
+    font-size: 40px;
+    margin: 20px 70px;
+  }
+
+  .socialLocation {
+    margin: 40px 70px;
+  }
+
+  .div-1 {
+    width: 30%;
+  }
+
+  .div-1 i {
+    font-size: 20px;
+  }
+
+  .div-1 h1 {
+    font-size: 15px;
+  }
+
+  .div-1 p {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .line h1 {
+    padding: 20px;
+  }
+
+  .signIn-container h2 {
+    font-size: 40px;
+    margin: -15px 30px;
+  }
+
+  .messageUs p {
+    margin: -15px 30px;
+  }
+
+  .signIn-container form {
+    margin: 35px 10px;
+  }
+
+  .signIn-container form input {
+    margin-bottom: 10px;
+  }
+
+  .inner-text i {
+    margin-top: 10px;
+  }
+}
+
 </style>
 </head>
 <body data-aos="fade">  

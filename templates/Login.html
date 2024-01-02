@@ -204,7 +204,35 @@
         opacity: 1; /* Initial opacity set to 1 */
         transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out; /* Add transition for smoother visibility change */
        
-    }   </style>
+    }  /* Media Queries for Responsive Design */
+
+@media only screen and (min-width: 600px) {
+    /* Adjust styles for screens wider than 600px */
+    .form {
+        max-width: 400px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* Adjust styles for screens wider than 768px (tablets) */
+    .form {
+        max-width: 500px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    /* Adjust styles for screens wider than 992px (small desktops) */
+    .form {
+        max-width: 600px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    /* Adjust styles for screens wider than 1200px (large desktops) */
+    .form {
+        max-width: 800px;
+    }
+} </style>
 </head>
 <body>
     <header>
@@ -230,6 +258,7 @@
                 <i class="fa-regular fa-envelope"></i> continue with Email
             </button>
             <p>Dont have an account <span><a href="{% url 'Signup' %}">SignUp</a></span></p>
+            <p>Admin panel <span><a href="{% url 'AdminPanel' %}">ADMIN</a></span></p>
             <p>Forgot password? <span><a href="#">Recover</a></span></p>
             {% if error_message %}
             <div class="error-message">

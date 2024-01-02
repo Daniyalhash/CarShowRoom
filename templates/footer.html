@@ -149,7 +149,12 @@
   
             font-weight: bold;
             letter-spacing: 1px;
-  }
+  }  @media only screen and (max-width: 600px) {
+        /* Adjust styles for screens up to 600px */
+        .footer-content {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 <body>
     <!--  footer-->

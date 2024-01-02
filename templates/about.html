@@ -40,6 +40,7 @@
 <style>
     .member{
     display: flex;
+    background-color: white;
 }.mem1 {
     position: relative; /* Add position: relative; to make z-index work */
     padding: 20px;
@@ -63,7 +64,120 @@
     margin-top: -30px;
     font-size: 20px;
     font-weight: 400;
-    color: #545454;
+}@media only screen and (max-width: 600px) {
+  .showAbout {
+    height: auto;
+  }
+
+  .contentAbout {
+    width: 90%;
+  }
+
+  .contentAbout h1 {
+    font-size: 24px;
+  }
+
+  .contentImage .imageDiv {
+    height: 50vh;
+  }
+
+  .team {
+    height: auto;
+  }
+
+  .team .person {
+    padding: 10px;
+  }
+
+  .person h1 {
+    font-size: 24px;
+  }
+  .member{
+
+    display: block;
+  }
+
+  .mem1 img {
+    height: auto;
+  }
+
+  .line {
+    padding: 10px;
+  }
+
+  .line h1 {
+    height: 1px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .contentAbout {
+    width: 70%;
+  }
+
+  .contentAbout h1 {
+    font-size: 30px;
+  }
+
+  .contentImage .imageDiv {
+    height: 60vh;
+  }
+
+  .team .person {
+    padding: 20px;
+  }
+
+  .person h1 {
+    font-size: 30px;
+  }
+
+  .mem1 img {
+    height: 250px;
+  }
+
+  .line {
+    padding: 20px;
+  }
+
+  .line h1 {
+    height: 2px;
+  }
+}
+
+/* Large screens (desktops) */
+@media only screen and (min-width: 1025px) {
+  .contentAbout {
+    width: 60%;
+  }
+
+  .contentAbout h1 {
+    font-size: 36px;
+  }
+
+  .contentImage .imageDiv {
+    height: 70vh;
+  }
+
+  .team .person {
+    padding: 30px;
+  }
+
+  .person h1 {
+    font-size: 36px;
+  }
+
+  .mem1 img {
+    height: 350px;
+  }
+
+  .line {
+    padding: 30px;
+  }
+
+  .line h1 {
+    height: 3px;
+  }
 }
 </style>
 </head>

@@ -37,7 +37,120 @@
 
     <!-- styleheet -->
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+<style>
+    * {
+  margin: 0%;
+  padding: 0%;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
 
+/* Small screens (phones) */
+@media only screen and (max-width: 600px) {
+  h2 {
+    padding: 30px;
+    font-size: 2rem;
+  }
+
+  .frontZone .switch-btn {
+    bottom: 5%;
+    right: 5%;
+    width: 5rem;
+    height: 3rem;
+    font-size: 0.8rem;
+  }
+
+  .middleSection .model-collection {
+    width: 90%;
+  }
+
+  .parent h5 {
+    font-size: 12px;
+  }
+
+  .parent h4 {
+    font-size: 16px;
+  }
+
+  .middleSectionDetails .box .heading-h1 {
+    font-size: 1.5rem;
+    margin-left: 20px;
+  }
+
+  /* Add more responsive adjustments as needed */
+}
+
+/* Medium screens (tablets) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  h2 {
+    padding: 40px;
+    font-size: 2.5rem;
+  }
+
+  .frontZone .switch-btn {
+    bottom: 7%;
+    right: 7%;
+    width: 7rem;
+    height: 4rem;
+    font-size: 1rem;
+  }
+
+  .middleSection .model-collection {
+    width: 80%;
+  }
+
+  .parent h5 {
+    font-size: 14px;
+  }
+
+  .parent h4 {
+    font-size: 18px;
+  }
+
+  .middleSectionDetails .box .heading-h1 {
+    font-size: 1.8rem;
+    margin-left: 50px;
+  }
+
+  /* Add more responsive adjustments as needed */
+}
+
+/* Large screens (desktops) */
+@media only screen and (min-width: 1025px) {
+  h2 {
+    padding: 60px;
+    font-size: 4rem;
+  }
+
+  .frontZone .switch-btn {
+    bottom: 7%;
+    right: 7%;
+    width: 7rem;
+    height: 4rem;
+    font-size: 1rem;
+  }
+
+  .middleSection .model-collection {
+    width: 60%;
+  }
+
+  .parent h5 {
+    font-size: 16px;
+  }
+
+  .parent h4 {
+    font-size: 20px;
+  }
+
+  .middleSectionDetails .box .heading-h1 {
+    font-size: 2rem;
+    margin-left: 200px;
+  }
+
+  /* Add more responsive adjustments as needed */
+}
+
+</style>
 </head>
 <body data-aos="fade">  
   {% include 'navbar.html' %}
